@@ -1,0 +1,261 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        body p .blurr {
+            color: #000000;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #videowrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #fullScreenDiv {
+            min-height: 100%;
+            height: 100vh;
+            width: 100vw;
+            padding: 0;
+            margin: 0;
+            background-color: gray;
+            position: relative;
+        }
+
+        #video {
+            width: 100vw;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            #video {
+                width: 100vw;
+                height: auto;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            #video {
+                height: 100vh;
+                width: auto;
+                margin-left: 50vw;
+                transform: translate(-50%);
+            }
+        }
+
+        #videoMessage {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .styling * {
+            margin: 0.2em;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .styling h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 2px #000000;
+        }
+
+        .styling h2 {
+            font-size: 1.5em;
+        }
+
+        .styling h3 {
+            font-size: 1.2em;
+        }
+
+        .videoClick a {
+            padding: 0.2em 0.5em;
+            border-radius: 0.5em;
+            color: white;
+            background-color: rgba(241, 241, 241, 0.45);
+            font-size: 1.7em;
+            cursor: pointer;
+            cursor: hand;
+        }
+
+    </style>
+</head>
+
+
+
+<!--------------------------------------Header Code---------------------------------------->
+
+
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="navbar">
+
+            <div class="icon-bar" onclick="Show()">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <ul id="nav-lists">
+                <li class="close"><span class="cross" onclick="Hide()">&times;</span></li>
+                <li><a href="#about-us">About Us</a></li>
+                <!-- <li><a href="#press-release">Press Release</a></li> -->
+                <!-- <li><a href="#blog">Blog</a></li> -->
+                <li><a href="#contact-us">Contact Us</a></li>
+                <li><a href="/upload-files.html">Upload File</a></li>
+                <li><a href="#contact-us">Patient History</a></li>
+                <li><a class="sign-in" href="#sign-in">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--------------------------------------Java Script---------------------------------------->
+    <script>
+        var navList = document.getElementById("nav-lists");
+
+        function Show() {
+            navList.classList.add("_Menus-show");
+        }
+
+        function Hide() {
+            navList.classList.remove("_Menus-show");
+        }
+    </script>
+</header>
+
+<body>
+    <div id="videowrapper">
+        <div id="fullScreenDiv">
+            <video id="video" role="presentation" preload="auto" playsinline="" crossorigin="anonymous" loop="" muted=""
+                autoplay="" class="blur">
+                <source src="video/video (2).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="videoMessage" class="styling">
+                <h1>Welcome Back Doctor Walvekar</h1>
+                <h2>Hope you're doing well today</h2>
+                <p class="videoClick">
+                    <a class="blurr" href="/upload-files.html">Click here and upload your document for diagnosis</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--================= FOOTER SECTION ========================-->
+    <footer>
+        <div class="container">
+            <!-- About Us Division -->
+            <!-- <div class="footer-boxes">
+                <div class="single-footer-widget">
+                    <h6>About Us</h6>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+            </div> -->
+
+            <!-- Contact Information Division -->
+            <div class="footer-boxes">
+                <div class="single-footer-widget">
+                    <h6>Contact Info</h6>
+                    <ul>
+                        <li>
+                            Address : Pune, Maharashtra
+                        </li>
+                        <li>
+                            <a href="mailto:someone@mail.com">Email : someone@mail.com</a>
+                        </li>
+                        <li>
+                            <a href="tel:+919898989898">Phone No. : +91 - 9898989898</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Navigation Links Division -->
+            <div class="footer-boxes">
+                <div class="single-footer-widget">
+                    <h6>Column 1</h6>
+                    <div class="columns">
+                        <ul>
+                            <li><a href="careers/">Clients</a></li>
+                            <li><a href="contact-us/">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="columns">
+                        <ul>
+                            <li><a href="faq/">FAQs</a></li>
+                            <!-- <li><a href="terms-and-conditions/">Terms & Conditions</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-boxes">
+                <div class="single-footer-widget">
+                    <h6>Column 2</h6>
+                    <div class="columns">
+                        <ul>
+                            <li><a href="careers/">Clients</a></li>
+                            <li><a href="contact-us/">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="columns">
+                        <ul>
+                            <li><a href="faq/">FAQs</a></li>
+                            <!-- <li><a href="terms-and-conditions/">Terms & Conditions</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright and Media Links Division -->
+            <div class="footer-bottom">
+                <p class="footer-text">
+                    Copyright &copy;
+                    <script>
+                        var d = new Date();
+                        var n = d.getFullYear();
+                        document.write(n); // Writing Current Year
+                    </script>
+                    All rights reserved by Me
+                </p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--========================== JS FILES ================================-->
+</body>
+
+</html>

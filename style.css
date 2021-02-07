@@ -1,0 +1,389 @@
+
+body .bg-image {
+    background-image: url('img/background-image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: 0;
+}
+/* -------------------------Header Internal Style---------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+body .bg-image {
+    background-image: url('img/background-image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: 0;
+}
+header .container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    background-color: #083461;
+    padding: 8px !important;
+}
+
+header .container .logo {
+    max-width: 250px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+header .container .logo a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 60px;
+}
+
+header .container .logo a img {
+    max-width: 100%;
+    max-height: 60px;
+}
+
+header .container .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 0 10px;
+}
+
+header .container .navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+}
+
+header .container .navbar ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    /****************************Shruti This Line*******************/
+    font-size: 16px;
+    text-transform: uppercase;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    padding: 0 15px;
+    color: white;
+    letter-spacing: 1px;
+    /****************************Shruti This Line*******************/
+    border-radius: 10px;
+}
+
+header .container .navbar ul li a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.301);
+    text-transform: uppercase;
+    text-shadow: -3px 4px 4px rgba(156, 156, 156, 0.589);
+}
+
+header .container .navbar ul .close {
+    display: none;
+    text-align: right;
+    padding: 10px;
+}
+
+header .container .navbar ul .close span {
+    font-size: 40px;
+    display: inline-block;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+header .container .navbar .icon-bar {
+    padding: 18px 8px;
+    width: 50px;
+    height: 60px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+header .container .navbar .icon-bar i {
+    height: 2px;
+    background-color: #ffffff;
+}
+/* .nav-lists li a .sign-in {
+    float: right;
+    padding-left: 20px;
+    margin-left: 520px !important;
+} */
+.cross {
+    color: white;
+}
+
+/************************************     Media Queries     ***************************************/
+
+@media only screen and (max-width: 900px) {
+    header .container {
+        justify-content: space-between;
+    }
+
+    header .container .logo {
+        flex: 1;
+    }
+
+    header .container .navbar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0;
+        flex: 0;
+    }
+
+    header .container .navbar ul {
+        flex-wrap: nowrap;
+        position: fixed;
+        left: 100%;
+        flex-direction: column;
+        background:#083461;
+        width: 50%;
+        height: 100%;
+        overflow: auto;
+        transition: left .3s;
+        margin-left: 50%;
+        padding-left: 3px;
+    }
+
+    header .container .navbar ul li a {
+        padding: 14px;
+        font-size: 16px;
+        height: auto;
+        line-height: normal;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    header .container .navbar ul .close {
+        display: block;
+    }
+
+    header .container .navbar .icon-bar {
+        display: flex;
+    }
+
+    header .container .navbar ._Menus-show {
+        left: 0;
+    }
+}
+
+/*************************    Dropdown CSS    ******************************/
+
+.dropdown {
+    /* position: relative; */
+    display: inline-block;
+    /* padding-top: 21px; */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    color: black;
+    background:#083461;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 3px 3px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.Dd {
+    padding: 0 !important;
+}
+
+/* Footer Style */
+/* Adding basic style */
+footer {
+    clear: both;
+    background-color:#083461;
+    padding-top: 80px;
+    color: #777777;
+}
+
+/* Main Container*/
+footer .container {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Individual Columns*/
+footer .container .footer-boxes {
+    display: inline-block;
+    width: 30%;
+    margin: 0 1.5%;
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.5em;
+}
+
+/* Sub-Columns in Navigation Links*/
+footer .container .footer-boxes .columns {
+    width: 49%;
+    display: inline-block;
+}
+
+/* Footer headings */
+footer h6 {
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Copyright section icons and links*/
+footer .copy-right-text i,
+.copy-right-text a {
+    color: rgba(3, 196, 235, 1);
+}
+
+/* copyright text*/
+footer .footer-text {
+    text-align: left;
+    margin-left: 1.55%;
+    width: 70%;
+    display: inline-block;
+    /* float: left; */
+    padding-top: 10px;
+}
+
+/* social media container */
+footer .footer-social {
+    text-align: right;
+    width: 28%;
+    display: inline-block;
+}
+
+/* social media links */
+footer .footer-social a {
+    width: 40px;
+    display: inline-table;
+    height: 20px;
+    text-align: center;
+    padding-top: 10px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+/* media on hover */
+footer .footer-social a:hover i {
+    color: rgba(3, 196, 235, 1);
+}
+
+/* media icons */
+footer .footer-social i {
+    color: #cccccc;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+/* for tablet screens */
+@media screen and (max-width: 1000px) {
+    footer .container .footer-boxes {
+        width: 47%;
+        margin-left: 0;
+        margin-right: 2%;
+        margin-bottom: 2%;
+    }
+
+    footer .container .footer-boxes:nth-child(3) {
+        display: block;
+        width: 80%;
+    }
+
+    footer .footer-text {
+        margin-left: 0;
+    }
+}
+
+/* for mobile screens */
+@media screen and (max-width: 575px) {
+
+    footer .footer-text {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    footer .container .footer-boxes {
+        display: block;
+        width: 100%;
+        margin-top: 5%;
+    }
+
+    footer .footer-social {
+        display: block;
+        text-align: left;
+        margin-top: 20px;
+        width: 100%;
+        clear: both;
+    }
+}
+
+/* column contents */
+footer .single-footer-widget p {
+    color: #777777;
+}
+
+/* content lists */
+footer .single-footer-widget ul li {
+    margin-bottom: 12px;
+}
+
+/* list links */
+footer .single-footer-widget ul li a {
+    color: #777777;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+/* links slide on hover */
+footer .single-footer-widget ul li a:hover {
+    color: rgba(3, 196, 235, 1);
+    transition: all 0.3s ease-out;
+    padding-left: 10px;
+}
+
+/* last section of footer */
+footer .footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+}
+
+/* copyright text icons */
+footer .footer-text a,
+.footer-text i {
+    color: rgba(3, 196, 235, 1);
+}
