@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        /*--------------------------------
+-------------- COMMON ------------
+--------------------------------*/
+
+        /* Basic */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Body Style Basics*/
+        body {
+            font-family: Roboto, sans-serif;
+            line-height: 1.5rem;
+            background: transparent;
+            text-align: justify;
+        }
+
+        .section-gap {
+            margin: 5% auto;
+        }
+
+        span.section-heading {
+            text-align: center;
+            font-size: 2em;
+            display: block;
+            margin: 3% auto;
+            line-height: 1.1em;
+            text-transform: uppercase;
+        }
+
+        span.section-heading::after {
+            content: '';
+            width: 10%;
+            min-width: 10vw;
+            background: rgba(3, 196, 235, 1);
+            height: 0.4rem;
+            display: block;
+            margin: 1.5% auto 0;
+        }
+
+        .bg-image {
+            background-image: url('../img/bg2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        .ca {
+            text-align: center;
+        }
+
+        .page-nav {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 5%;
+            font-size: 1.5em;
+        }
+
+        .page-nav .page-nav-element {
+            color: rgb(0, 0, 0);
+            margin: 0 1%;
+        }
+
+        .page-nav a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 550px) {
+            .page-nav .page-nav-element {
+                margin: 0 1.5%;
+            }
+        }
+
+        /* Contact Page */
+        /* Request Forms */
+        #contact-page-area,
+        #request-form-area {
+            width: 90%;
+            margin: 6% auto;
+        }
+
+        /* Address Column */
+        #contact-page-area .address-wrap {
+            width: 30%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* User Details Column */
+        #contact-page-area .contact-person-details,
+        #request-form-area .request-form-details {
+            width: 69%;
+            display: inline-block;
+        }
+
+        #request-form-area .request-form-details {
+            width: auto;
+        }
+
+        /* Individual address elements */
+        #contact-page-area .address-wrap .single-contact-address {
+            margin: 3% auto;
+        }
+
+        /* Icons and texts */
+        #contact-page-area .address-wrap .single-contact-address div {
+            display: inline-block;
+            line-height: 1.5em;
+            vertical-align: middle;
+        }
+
+        /* Icon */
+        #contact-page-area .address-wrap .single-contact-address .lnr {
+            font-size: 2.1em;
+            color: rgba(3, 196, 235, 1);
+        }
+
+        /* contact details text */
+        #contact-page-area .address-wrap .single-contact-address .contact-details {
+            margin-left: 5%;
+        }
+
+        /* contact-form elements collection */
+        /* request-form elements collection */
+        #contact-page-area .contact-person-details .form-elements,
+        #request-form-area .request-form-details .form-elements {
+            width: 100%;
+            display: -webkit-flex;
+            /* Safari */
+            display: flex;
+            /* Standard syntax */
+        }
+
+        /* form groups */
+        #contact-page-area .contact-person-details .form-elements .form-group,
+        #request-form-area .request-form-details .form-elements .form-group {
+            width: 47%;
+            -webkit-flex: 1;
+            /* Safari */
+            -ms-flex: 1;
+            /* IE 10 */
+            flex: 1;
+            /* Standard syntax */
+            margin: 0 1.25%;
+        }
+
+        /* form user details boxes */
+        #contact-page-area .contact-person-details input,
+        #request-form-area .request-form-details input,
+        #request-form-area .request-form-details select {
+            padding: 1em 2em 1em 1em;
+            width: 100%;
+            margin-bottom: 5%;
+            outline: none;
+        }
+
+        /* form message area */
+        #contact-page-area .contact-person-details textarea,
+        #request-form-area .request-form-details textarea {
+            width: 100%;
+            padding: 1em 2em 1em 1em;
+            height: 90%;
+            outline: none;
+        }
+
+        /* form submit button container*/
+        #contact-page-area .contact-person-details .message-button,
+        #request-form-area .request-form-details .message-button {
+            display: block;
+            width: 100%;
+            text-align: right;
+        }
+
+        /* form submit button */
+        #contact-page-area .contact-person-details .message-button .genric-btn.primary,
+        #request-form-area .request-form-details .message-button .genric-btn.primary {
+            outline: none;
+            line-height: 40px;
+            padding: 0 30px;
+            font-size: .8em;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            -webkit-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+            color: rgb(255, 255, 255);
+            background: rgba(3, 196, 235, 1);
+            border: 1px solid transparent;
+            margin-right: 1.65%;
+        }
+
+        /* button on hover */
+        #contact-page-area .contact-person-details .message-button .genric-btn.primary:hover,
+        #request-form-area .request-form-details .message-button .genric-btn.primary:hover {
+            color: rgba(3, 196, 235, 1);
+            border: 1px solid rgba(3, 196, 235, 1);
+            background: rgb(255, 255, 255);
+        }
+
+        /* for tablets */
+        @media screen and (max-width: 900px) {
+
+            #contact-page-area .address-wrap {
+                width: 100%;
+                display: block;
+            }
+
+
+            #contact-page-area .contact-person-details,
+            #request-form-area .request-form-details {
+                width: 100%;
+                display: block;
+                margin-top: 5%;
+            }
+        }
+
+        /* for smaller devices */
+        @media screen and (max-width: 790px) {
+
+            #contact-page-area .contact-person-details .form-elements,
+            #request-form-area .request-form-details .form-elements {
+                width: 100%;
+                display: block;
+            }
+
+            #contact-page-area .contact-person-details .form-elements .form-group,
+            #request-form-area .request-form-details .form-elements .form-group {
+                width: 100%;
+                display: block;
+            }
+
+            #contact-page-area .contact-person-details textarea,
+            #request-form-area .request-form-details textarea {
+                height: 30%;
+                margin-bottom: 10%;
+
+            }
+        }
+
+        .country-options {
+            color: black;
+        }
+
+        /*-----------------------------*/
+    </style>
+</head>
+
+<body>
+    <span class="section-heading">
+        <h1>CONTACT US</h1>
+    </span>
+
+    <section id="contact-page-area" class="container">
+        <div class="address-wrap">
+            <div class="single-contact-address">
+                <div class="icon">
+                    <span class="lnr lnr-home"></span>
+                </div>
+                <div class="contact-details">
+                    <h5>Pune, Maharashtra</h5>
+                    <p>
+                        Address
+                    </p>
+                </div>
+            </div>
+            <div class="single-contact-address">
+                <div class="icon">
+                    <span class="lnr lnr-phone-handset"></span>
+                </div>
+                <div class="contact-details">
+                    <h5>+91- 9999999999</h5>
+                    <p>Mon to Fri 9am to 6 pm</p>
+                </div>
+            </div>
+            <div class="single-contact-address">
+                <div class="icon">
+                    <span class="lnr lnr-envelope"></span>
+                </div>
+                <div class="contact-details">
+                    <h5>someone@mail.com</h5>
+                    <p>Send us your query anytime!</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-person-details">
+            <form class="contact-form" id="myForm" action="" method="post">
+                <div class="form-elements">
+                    <div class="form-group">
+                        <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter your name'" class=" form-control" required="" type="text">
+
+                        <input name="email" placeholder="Enter email address"
+                            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter email address'" class="form-control" required=""
+                            type="email">
+
+                        <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter subject'" class="form-control" required="" type="text">
+
+                    </div>
+                    <div class="form-group">
+                        <textarea class="common-textarea form-control" name="message" placeholder="Enter Messege"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Messege'"
+                            required=""></textarea>
+                    </div>
+                </div>
+                <div class="message-button">
+                    <button class="genric-btn primary" type="submit" name="insert">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
