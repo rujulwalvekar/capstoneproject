@@ -12,3 +12,12 @@ def results(request):
 
 def profile(request):
     return render(request, "profile.html")
+
+def signin(request):
+    return render(request, "sign-in.html")
+
+def signup(request):
+    return render(request, "sign-up.html")
+
+def addpatient(request):
+    return render(request, "addPatient.html")
