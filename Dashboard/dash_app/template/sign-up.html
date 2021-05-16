@@ -10,14 +10,14 @@
   <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png'%}">
   <title>
   <title>
-    
+
   </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link rel="stylesheet" href="{% static 'assets/css/nucleo-icons.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
-  
+
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
@@ -39,7 +39,7 @@
         </span>
       </button>
       <div class="collapse navbar-collapse" id="navigation">
-        <ul class="navbar-nav mx-auto">  
+        <ul class="navbar-nav mx-auto">
         </ul>
       </div>
     </div>
@@ -47,7 +47,7 @@
   <!-- End Navbar -->
   <section class="h-100-vh mb-8">
     <div class="page-header align-items-start section-height-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url({%static 'assets/img/curved-images/curved14.jpg' %});">
-      
+
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -109,21 +109,23 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form text-left">
+               <form role="form text-left" method="post" action="{% url 'sign-up' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
+                  <input name="name_input_type" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                  <input name="email_input_type" type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                  <input name="password_input_type" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2"><a href="{% url 'dashboard' %}">Sign up</a>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up
                   </button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'sign-in' %}" class="text-dark font-weight-bolder">Sign in</a></p>
+                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'sign-in'%}" class="text-dark font-weight-bolder">Sign in</a></p>
               </form>
             </div>
           </div>
@@ -134,7 +136,7 @@
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <footer class="footer py-5">
     <div class="container">
-      
+
     </div>
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->

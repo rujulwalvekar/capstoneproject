@@ -17,8 +17,12 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 
+from dash_app import views
+
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('homepage/', include('dash_app.urls')),
     path('admin/', admin.site.urls),
+    path('', views.signin, name='sign-in'),
+    path('sign-up', views.signup, name='sign-up'),
 ]

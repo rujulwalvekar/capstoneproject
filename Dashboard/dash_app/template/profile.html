@@ -361,7 +361,7 @@
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{%static 'assets/img/neil.jpeg' %}" alt="..." class="w-100 border-radius-lg shadow-sm">
+                            <img src="{%static 'assets/img/Rujul.jpeg' %}" alt="..." class="w-100 border-radius-lg shadow-sm">
                             <!-- <a href="javascript:;" -->
                             <a href="{% url 'addPatient' %}"
                                 class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2">
@@ -373,17 +373,17 @@
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
-                                Neil Bhutada
+                                {{patient.name}}
                             </h5>
                             <ul class="list-group ">
                                 <!-- <li class="list-group-item border-0 "><strong class="text-dark">Full Name:</strong>
                                     &nbsp; Alec M. Thompson</li> -->
                                 <li class="list-group-item border-0 "><strong class="text-dark">Mobile:</strong> &nbsp;
-                                    8411969975</li>
+                                    {{patient.phone_number}}</li>
                                 <li class="list-group-item border-0 "><strong class="text-dark">Email:</strong> &nbsp;
-                                    neil1234@icloud.com</li>
+                                    {{patient.email}}</li>
                                 <li class="list-group-item border-0 "><strong class="text-dark">Location:</strong>
-                                    &nbsp; India</li>
+                                    &nbsp; {{patient.address}}</li>
 
                             </ul>
                         </div>
@@ -471,11 +471,11 @@
 
                                     <ul class="list-group ">
                                         <li class="list-group-item border-0 "> &nbsp;
-                                            8411969975</li>
+                                            {{patient.phone_number}}</li>
                                         <li class="list-group-item border-0 "> &nbsp;
-                                            neil1234@icloud.com</li>
+                                            {{patient.email}}</li>
                                         <li class="list-group-item border-0 ">
-                                            &nbsp; India</li>
+                                            &nbsp; {{patient.address}}</li>
                                     </ul>
                                 </li>
 
