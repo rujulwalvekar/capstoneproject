@@ -343,7 +343,7 @@
                   style="background-image: url('../assets/img/curved-images/curved14.jpg');">
                   <span class="mask bg-gradient-dark"></span>
                   <div class="card-body position-relative z-index-3 p-5">
-                    <img src="{%static 'assets/img/bruce-mars.jpg' %}" class="avatar avatar-sm me-3">
+                    <img src="{%static 'assets/img/'|add:patient.name|add:'.jpeg' %}" class="avatar avatar-sm me-3">
                     <h5 class="text-white mb-0">{{patient.name}}</h5>
                     <h6 class="text-white mb-0">{{patient.phone_number}}</h6>
                     <h6 class="text-white mb-0">{{patient.email}}</h6>
