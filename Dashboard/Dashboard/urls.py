@@ -20,7 +20,6 @@ from django.urls import path
 from dash_app import views
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
     path('homepage/', include('dash_app.urls')),
     path('admin/', admin.site.urls),
     path('', views.signin, name='sign-in'),
