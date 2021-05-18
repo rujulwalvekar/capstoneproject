@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 # display homepage
 
 from .models import Doctor, Patient
+from .operations.PatientManager import PatientManager
 from .operations.details import Details
 
 
@@ -44,8 +45,22 @@ def profile(request):
     print("PATIENT ", details)
     return render(request, "profile.html", details)
 
-
+@csrf_exempt
 def signin(request):
+    print("Signing in user get")
+    if request.method == 'POST':
+        if request.POST['password_input_type'] and request.POST['email_input_type']:
+            try:
+                user_email = request.POST['email_input_type']
+                password = request.POST['password_input_type']
+                print(user_email, password)
+                user = User.objects.filter(email=user_email, password=password)
+                if user:
+                    print('Logging in user: ', user)
+                    login(request, user)
+                    return HttpResponseRedirect('homepage/dashboard/')
+            except Exception as e:
+                print("Error while logging ing a user: {}".format(e))
     return render(request, "sign-in.html")
 
 
@@ -56,12 +71,10 @@ def signup(request):
         """
         Sign up a new user
         """
-        print('Signing up user')
         if request.POST['password_input_type'] and request.POST['email_input_type'] and request.POST['name_input_type']:
             user_name = request.POST['name_input_type']
             user_email = request.POST['email_input_type']
             password = request.POST['password_input_type']
-            print("Sign up user email", user_email)
             try:
                 user = User.objects.create_user(username=user_name, email=user_email, password=password)
                 user.save()
@@ -75,4 +88,14 @@ def signup(request):
 
 
 def addpatient(request):
+
+    if request.method == 'POST':
+        patient_manager_obj = PatientManager(patient_details=request.POST)
+        required_patient_details = patient_manager_obj.all_required_fields_present()
+        if required_patient_details:
+            patient = Patient().create(
+                *required_patient_details
+            )
+            patient.save()
+            # return HttpResponseRedirect('homepage/dashboard/')
     return render(request, "addPatient.html")

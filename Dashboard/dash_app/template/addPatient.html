@@ -367,7 +367,8 @@
         <h4>Patient History</h4>
       </span>
       <div class="contact-person-details">
-        <form class="contact-form" id="myForm" action="" method="post">
+        <form class="contact-form" id="myForm" action="{% url 'addPatient' %}" method="post">
+          {% csrf_token %} {{ form.as_p }}
           <div class="form-elements">
             <div class="form-group">
               <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
@@ -391,7 +392,7 @@
               </select>
               <br> -->
 
-              <input name="subject" placeholder="Enter Birthday" onfocus="this.placeholder = 'Enter Birthday'"
+              <input name="date_of_birth" placeholder="Enter Birthday" onfocus="this.placeholder = 'Enter Birthday'"
                 onblur="this.placeholder = 'Enter Birthdate'" class="form-control" required="" type="date">
               <br>
 
@@ -400,7 +401,12 @@
                 onblur="this.placeholder = 'Enter email address'" class="form-control" required="" type="email">
               <br>
 
-              <input name="name" placeholder="Enter your Birthplace" onfocus="this.placeholder = ''"
+              <input name="phone_number" placeholder="Enter phone number"
+                 onfocus="this.placeholder = 'Enter phone number'"
+                onblur="this.placeholder = 'Enter phone number'" class="form-control" required="" type="text">
+              <br>
+
+              <input name="birth_place" placeholder="Enter your Birthplace" onfocus="this.placeholder = ''"
                 onblur="this.placeholder = 'Enter your Place of Birth'" class=" form-control" required="" type="text">
               <br>
 
@@ -687,23 +693,23 @@
               </select>
               
               <br>
-              <textarea class="common-textarea form-control" name="message" placeholder="Enter Allergies"
-                onfocus="this.placeholder = 'Allergies, If Any'"
-                onblur="this.placeholder = 'Enter Allergies'"></textarea>
-              <br>
-              <textarea class="common-textarea form-control" name="message" placeholder="Enter Medications"
-                onfocus="this.placeholder = 'Medications, If Any'"
-                onblur="this.placeholder = 'Enter Medications'"></textarea>
-              <br>
-              <textarea class="common-textarea form-control" name="message" placeholder="Enter Observations"
-                onfocus="this.placeholder = 'Observations, If Any'"
-                onblur="this.placeholder = 'Enter Observations'"></textarea>
+<!--              <textarea class="common-textarea form-control" name="allergies" placeholder="Enter Allergies"-->
+<!--                onfocus="this.placeholder = 'Allergies, If Any'"-->
+<!--                onblur="this.placeholder = 'Enter Allergies'"></textarea>-->
+<!--              <br>-->
+<!--              <textarea class="common-textarea form-control" name="medications" placeholder="Enter Medications"-->
+<!--                onfocus="this.placeholder = 'Medications, If Any'"-->
+<!--                onblur="this.placeholder = 'Enter Medications'"></textarea>-->
+<!--              <br>-->
+<!--              <textarea class="common-textarea form-control" name="observations" placeholder="Enter Observations"-->
+<!--                onfocus="this.placeholder = 'Observations, If Any'"-->
+<!--                onblur="this.placeholder = 'Enter Observations'"></textarea>-->
             </div>
 
-            <button class="genric-btn primary" type="submit" name="insert" onclick="myFunction()">Add
+            <button class="genric-btn primary" type="submit" onclick="myFunction()">Add
               Data</button>
             
-            <button class="genric-btn primary" type="upload" name="insert" onclick="myFunction()">Add
+            <button class="genric-btn primary" type="upload" onclick="myFunction()">Add
               Files</button>
 
           </div>
