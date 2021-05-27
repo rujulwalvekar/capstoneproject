@@ -37,7 +37,7 @@ def results(request):
     The bottom code is temporary.
     '''
     patients = details.get('patients')
-    details['patient'] = patients[0]
+    details['patient'] = patients[0] 
     ''''''
     return render(request, "results.html", details)
 
