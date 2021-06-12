@@ -7,6 +7,6 @@ class Details(object):
 
     def get_patient_doctor_details(self):
         patients = Patient.objects.all().order_by('-last_interaction')
-        user_name = self.request.user
-        details = {'username': user_name, 'patients': patients}
+        user = self.request.user
+        details = {'user': user, 'patients': patients}
         return details

@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 # display homepage
-
+from Calendar import list_events
 from .models import Doctor, Patient
 from .operations.PatientManager import PatientManager
 from .operations.details import Details
@@ -16,7 +16,13 @@ from .operations.details import Details
 def homepage(request):
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
-    return render(request, "dashboard.html", details)
+    email = details['user'].email
+    username = details['user'].username
+    patient_details = details['patients']
+    events = list_events.get_events(str(email))
+    return_data = {'username': username, 'patient_details': patient_details, 'calendar_events': events}
+    print('events', events)
+    return render(request, "dashboard.html", return_data)
 
 
 def results(request):
@@ -44,6 +50,7 @@ def profile(request):
     ''''''
     print("PATIENT ", details)
     return render(request, "profile.html", details)
+
 
 @csrf_exempt
 def signin(request):
@@ -88,7 +95,6 @@ def signup(request):
 
 
 def addpatient(request):
-
     if request.method == 'POST':
         patient_manager_obj = PatientManager(patient_details=request.POST)
         required_patient_details = patient_manager_obj.all_required_fields_present()
@@ -99,3 +105,8 @@ def addpatient(request):
             patient.save()
             # return HttpResponseRedirect('homepage/dashboard/')
     return render(request, "addPatient.html")
+
+
+def view_calendar_events(request):
+    email = request.user.email
+    events = list_events.get_events(str(email))
