@@ -19,9 +19,13 @@ def homepage(request):
     email = details['user'].email
     username = details['user'].username
     patient_details = details['patients']
-    events = list_events.get_events(str(email))
-    return_data = {'username': username, 'patient_details': patient_details, 'calendar_events': events}
-    print('events', events)
+    return_data = {'username': username, 'patient_details': patient_details}
+
+    try:
+        events = list_events.get_events(str(email))
+        return_data.update({'calendar_events': events})
+    except Exception as e:
+        print("Error while fetching calendar events", e)
     return render(request, "dashboard.html", return_data)
 
 
