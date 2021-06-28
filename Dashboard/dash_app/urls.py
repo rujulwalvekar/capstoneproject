@@ -7,5 +7,7 @@ urlpatterns = [
     path('result/', views.results, name='result'),
     path('overview/', views.profile, name='overview'),
     path('new/', views.addpatient, name='addPatient'),
-    # path('rujul', views.rujul, name='rujul'),
+    
+
+    #path('overview/predict/', views.predict, name='predict'),
 ]
