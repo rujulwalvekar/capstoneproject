@@ -24,4 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.signin, name='sign-in'),
     path('sign-up', views.signup, name='sign-up'),
+    path('mripredict', views.mripredict, name='mripredict'),
+    path('petpredict', views.petpredict, name='petpredict'),
+    path('xraypredict', views.xraypredict, name='xraypredict'),
+    path('ecgpredict', views.ecgpredict, name='ecgpredict'),
 ]
