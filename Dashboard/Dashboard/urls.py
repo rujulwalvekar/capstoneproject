@@ -28,4 +28,5 @@ urlpatterns = [
     path('petpredict', views.petpredict, name='petpredict'),
     path('xraypredict', views.xraypredict, name='xraypredict'),
     path('ecgpredict', views.ecgpredict, name='ecgpredict'),
+    path('breastpredict', views.breastpredict, name='breastpredict')
 ]

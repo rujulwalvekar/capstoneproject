@@ -1,6 +1,7 @@
 import tensorflow as tf
 import tifffile as tff
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
+
 
 
 def dense_block(units, dropout_rate):
@@ -39,15 +40,21 @@ def build_model():
     return model
 
 model=build_model()
-model.add_weight('/content/drive/MyDrive/weights/Breast_Cancer/DenseNet121_fold_5.h5')
+model.add_weight('/content/capstoneproject/Dashboard/dl/breast.h5')
 
-img=tff.imread('/content/drive/MyDrive/weights/Breast_Cancer/00001b2b5609af42ab0ab276dd4cd41c3e7745b5.tif')
-plt.imshow(img)
-plt.axis('off')
+def breastpred(path):
+    
 
-p=model.predict(img.reshape((1,96,96,3)))
-if p > 0.4 : 
-    return('cancer cell present in image')
-else : 
-    return('no cancer cell present in image')
+    loc = '/content/capstoneproject/Dashboard/' + path
+    # img=tff.imread('/content/drive/MyDrive/weights/Breast_Cancer/00001b2b5609af42ab0ab276dd4cd41c3e7745b5.tif')
+    img=tff.imread(loc)
+
+    # plt.imshow(img)
+    # plt.axis('off')
+
+    p=model.predict(img.reshape((1,96,96,3)))
+    if p > 0.4 : 
+        return 0
+    else : 
+        return 1
 

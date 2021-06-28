@@ -14,6 +14,8 @@ from backend_brain_pipeline import process_pipeline
 from pet import output
 from ecg import prediction
 from xray import xray_pred
+from breast import breastpred
+
 # Create your views here.  
 
 # display homepage
@@ -42,7 +44,7 @@ def homepage(request):
 def results(request):
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
-
+    
     '''
     The bottom code is temporary.
     '''
@@ -144,14 +146,13 @@ def mripredict(request):
                 with open('/content/capstoneproject/Dashboard//media/file_' + str(count), 'wb+') as destination:
                     for chunk in f.chunks():
                         destination.write(chunk)
-                        print("1") 
+                        #print("1") 
             process(x)
     # process_pipeline(paths, fname='dash_app/static/assets/img/mriout.gif')
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
     context['c'] = 'static/assets/img/out.gif'
-    
-    return render(request, 'index.html', context)
+    return render(request, 'result.html', context)
 
 
 def petpredict(request):
@@ -233,3 +234,24 @@ def ecgpredict(request):
       context['b'] = 'AbNormal '    
     return render(request, 'index.html', context)
 
+def breastpredict(request):
+    fs=FileSystemStorage()
+
+    fileObj = request.FILES['filelocation8']
+    filePathName8 = fs.save(fileObj.name, fileObj)
+    filePathName8 = fs.url(fileObj.name)
+    path = filePathName8
+    print(filePathName8)
+    
+    print(path)
+    a = breastpred(path)
+    context={}
+    context['a'] = 'The Results for Breast Cancer Cell detection are '
+    if(a==0):
+      context['b'] = 'Cancer cells are present '
+      context['c'] = 'static/assets/img/ecg0.jpg'
+    else:
+      context['b'] = 'Cancer Cells are not present '
+      context['c'] = 'static/assets/img/ecg1.jpg'
+      
+    return render(request, 'index.html', context)
