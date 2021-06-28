@@ -1,10 +1,20 @@
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-
-# Create your views here.
+from django.core.files.storage import FileSystemStorage
+import os
+from django.templatetags.static import static
+from django.views.decorators.csrf import ensure_csrf_cookie
+import sys
+sys.path.insert(1, 'dl/model')
+from backend_brain_pipeline import process_pipeline
+from pet import output
+from ecg import prediction
+from xray import xray_pred
+# Create your views here.  
 
 # display homepage
 from Calendar import list_events
@@ -37,7 +47,7 @@ def results(request):
     The bottom code is temporary.
     '''
     patients = details.get('patients')
-    details['patient'] = patients[0]
+    details['patient'] = patients[0] 
     ''''''
     return render(request, "results.html", details)
 
@@ -114,3 +124,112 @@ def addpatient(request):
 def view_calendar_events(request):
     email = request.user.email
     events = list_events.get_events(str(email))
+
+
+
+class OverwriteStorage(FileSystemStorage):
+
+    def get_available_name(self, name, max_length=None):
+        self.delete(name)
+        return name
+
+def mripredict(request):
+    context={}
+    paths = []
+#    fs = OverwriteStorage()
+    print("*******************************")
+    fs = OverwriteStorage()
+    for count, x in enumerate(request.FILES.getlist("filelocation1")):
+            def process(f):
+                with open('/content/capstoneproject/Dashboard//media/file_' + str(count), 'wb+') as destination:
+                    for chunk in f.chunks():
+                        destination.write(chunk)
+                        print("1") 
+            process(x)
+    # process_pipeline(paths, fname='dash_app/static/assets/img/mriout.gif')
+    context['a'] = 'The Results for MRI Scans are'
+    context['b'] = 'Coloured regions indicate abnormality'
+    context['c'] = 'static/assets/img/out.gif'
+    
+    return render(request, 'index.html', context)
+
+
+def petpredict(request):
+    
+    fs=FileSystemStorage()
+
+    fileObj = request.FILES['filelocation5']
+    filePathName5 = fs.save(fileObj.name, fileObj)
+    filePathName5 = fs.url(fileObj.name)
+    path = filePathName5
+    print(filePathName5)
+    
+    print(path)
+
+    a = output(path)
+    context={}
+    context['a'] = 'The Results for PET Scans are '
+    if(a==0):
+        context['b'] = 'Normal as per Ai'
+        context['c'] = 'static/assets/img/normalpet.gif'
+    else:
+      context['b'] = 'AbNormal as per Ai'
+      context['c'] = 'static/assets/img/abnormalpet.gif'
+    
+    path = '/content/capstoneproject/Dashboard/' + path
+    context['c'] = path
+    return render(request, 'index.html', context)
+
+
+def xraypredict(request):
+
+    fs=FileSystemStorage()
+
+    fileObj = request.FILES['filelocation6']
+    filePathName6 = fs.save(fileObj.name, fileObj)
+    filePathName6 = fs.url(fileObj.name)
+    path = filePathName6
+    print(filePathName6)
+    
+    print(path)
+    a = xray_pred(path)
+    context={}
+    context['a'] = 'The prediction for the XRay Image is '
+    if(a==0):
+      context['b'] = 'Normal Xray, no Pneumonia found by Ai'
+    else:
+      context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
+      
+    path2 = '/content/capstoneproject/Dashboard/' + path
+    context['c'] = path
+    context['d'] = path2
+    return render(request, 'index.html', context)
+
+
+def ecgpredict(request):
+    fs=FileSystemStorage()
+
+    fileObj = request.FILES['filelocation7']
+    filePathName7 = fs.save(fileObj.name, fileObj)
+    filePathName7 = fs.url(fileObj.name)
+    path = filePathName7
+    print(filePathName7)
+    
+    print(path)
+    a = prediction(path)
+    context={}
+    context['a'] = 'The Results for ECG are '
+    if(a[0][0]==0):
+      context['b'] = 'Non-ectopic Beats'
+      context['c'] = 'static/assets/img/ecg0.jpg'
+    elif(a[0][1]==0):
+      context['b'] = 'Fusion Beats '
+      context['c'] = 'static/assets/img/ecg1.jpg'
+    elif(a[0][2]==0):
+      context['b'] = 'AbNormal '
+    elif(a[0][3]==0):
+      context['b'] = 'AbNormal '
+    elif(a[0][4]==0):
+      context['b'] = 'AbNormal '    
+    return render(request, 'index.html', context)
+
