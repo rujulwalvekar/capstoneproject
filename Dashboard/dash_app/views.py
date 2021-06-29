@@ -66,18 +66,20 @@ def profile(request):
 
 @csrf_exempt
 def signin(request):
-    print("Signing in user get")
+    print("Signing in user post")
     if request.method == 'POST':
-        if request.POST['password_input_type'] and request.POST['email_input_type']:
+        if request.POST['password1'] and request.POST['email']:
             try:
-                user_email = request.POST['email_input_type']
-                password = request.POST['password_input_type']
+                user_email = request.POST['email']
+                password = request.POST['password1']
                 print(user_email, password)
-                user = User.objects.filter(email=user_email, password=password)
+                user = User.objects.filter(email=user_email).first()
                 if user:
                     print('Logging in user: ', user)
                     login(request, user)
                     return HttpResponseRedirect('homepage/dashboard/')
+                else:
+                    return render(request, "sign-up.html")
             except Exception as e:
                 print("Error while logging ing a user: {}".format(e))
     return render(request, "sign-in.html")
