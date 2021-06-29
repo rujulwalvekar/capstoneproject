@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
@@ -8,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # display homepage
 from Calendar import list_events
+from .datetime_utilities import datetime_utilities
 from .forms import RegistrationForm
 from .models import Doctor, Patient
 from .operations.PatientManager import PatientManager
@@ -27,9 +30,8 @@ def homepage(request):
         print('email', request.user.email)
         events = list_events.get_events(str(email))
         validate_events_informations = ValidateEventsInformation(events=events)
-        validated_events = validate_events_informations.convert_event_datetime_to_military_time()
-        # print('validated_events', validated_events)
-        return_data.update({'calendar_events': validated_events})
+        validated_events = validate_events_informations.update_info_of_events()
+        return_data.update({'calendar_events': validated_events, 'day': datetime_utilities.day_of_week(datetime.today().weekday())})
     except Exception as e:
         print("Error while fetching calendar events", e)
     return render(request, "dashboard.html", return_data)

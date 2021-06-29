@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from dash_app.datetime_utilities import datetime_utilities
 
 
@@ -5,7 +7,7 @@ class ValidateEventsInformation(object):
     def __init__(self, events):
         self.events = events
 
-    def convert_event_datetime_to_military_time(self):
+    def update_info_of_events(self):
         for event in self.events:
             event_start = event['start']['dateTime']
             event_end = event['end']['dateTime']
@@ -15,5 +17,4 @@ class ValidateEventsInformation(object):
             event['start'] = datetime_utilities.get_military_time_from_datetime(event_start_datetime)
             event['end'] = datetime_utilities.get_military_time_from_datetime(event_end_datetime)
             print('local_start', event)
-
         return self.events

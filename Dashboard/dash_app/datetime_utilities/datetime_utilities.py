@@ -4,9 +4,22 @@ import pytz
 
 TIMEZONE = pytz.timezone('Asia/Kolkata')
 
+DAY_OF_WEEK = [
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+    "SUNDAY"]
+
 
 def get_current_datetime():
     return datetime.utcnow()
+
+
+def day_of_week(dt):
+    return DAY_OF_WEEK[dt]
 
 
 def convert_str_datetime_to_datetime_obj(datetime_str, parser='%Y-%m-%dT%H:%M:%S'):

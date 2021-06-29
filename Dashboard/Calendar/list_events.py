@@ -14,8 +14,8 @@ def get_events(calendarId):
     print("GService ", service)
     page_token = None
     while True:
-        start_time = datetime.utcnow().replace(hour=0, minute=0).isoformat() + 'Z'
-        end_time = datetime.utcnow().replace(hour=23, minute=59).isoformat() + 'Z'
+        start_time = datetime.now().replace(hour=0, minute=0).isoformat() + 'Z'
+        end_time = datetime.now().replace(hour=23, minute=59).isoformat() + 'Z'
         events = service.events().list(calendarId=calendarId, pageToken=page_token,
                                        timeMin=start_time,
                                        timeMax=end_time).execute()

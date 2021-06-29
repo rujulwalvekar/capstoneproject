@@ -564,7 +564,7 @@
               <p class="text-sm">
                 <i class="ni ni-time-alarm text-warning text-gradient"></i>
                 <!-- <i class="fa fa-arrow-up text-success" aria-hidden="true"></i> -->
-                Appointments today<span class="font-weight-bold"> ['Insert Day'] </span>
+                Appointments today<span class="font-weight-bold"> {{day}}</span>
               </p>
             </div>
            {% for event in calendar_events %}
@@ -578,7 +578,7 @@
                     <h6 class="text-dark text-sm font-weight-bold mb-0">{{event.summary}}</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"> Attendees: </p>
                     {% for attendee in event.attendees %}
-                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{attendee.email}}</p>
+                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{attendee.email}}</p>
                     {% endfor %}
 
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{event.start}} - {{event.end}}</p>
