@@ -92,7 +92,7 @@
             <span class="nav-link-text ms-1">Patient Results</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link  " href="{% url 'overview' %}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -121,11 +121,11 @@
             </div>
             <span class="nav-link-text ms-1">Patient Overview</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link  " href="{% url 'sign-in' %}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -151,9 +151,10 @@
             </div>
             <span class="nav-link-text ms-1">Sign In</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link  " href="{% url 'sign-up' %}">
+            <!-- <a class="nav-link  " href="must add logout"> -->
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +183,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
+            <span class="nav-link-text ms-1">Logout</span>
           </a>
         </li>
       </ul>
@@ -472,16 +473,21 @@
                     <h5 class="mb-3 text-sm">Fibroma Tumors</h5>
                     <span class="mb-2 text-xs">Prediction based on:<span class="text-dark font-weight-bold ms-2">MRI
                         Scans</span></span>
-                    <span class="text-xs">Report No: <span
-                        class="text-dark ms-2 font-weight-bold">FRB1235470</span></span>
-                  </div>
-                  <div class="ms-auto">
 
-                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
-                        class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View Details</a>
+                    <span class="text-xs"><h2> {{a}} a here</h2><br> <span
+                        class="text-dark ms-2 font-weight-bold"><h2> {{b}} b here</h2></span></span>
+                  </div>
+
+                  <!-- <img src="{{c}}" height ="400" width="300"alt=" "> -->
+                 
+                  <!-- <img src="{% static 'assets/img/local_hospitallogo.png' %}" class="navbar-brand-img h-100 w-15" alt="..."> -->
+                  <div class="ms-auto">
+                    <img src="{% static 'assets/img/3.jpg' %}" height ="400" width="300"alt=" ">
+                    <!-- <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                        class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View Details</a> -->
                   </div>
                 </li>
-                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                <!-- <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
                     <h5 class="mb-3 text-sm">Myxoma Tumors</h5>
                     <span class="mb-2 text-xs">Prediction based on:<span class="text-dark font-weight-bold ms-2">PET
@@ -494,8 +500,8 @@
                     <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
                         class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View Details</a>
                   </div>
-                </li>
-                <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+                </li> -->
+                <!-- <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
                     <h5 class="mb-3 text-sm">Fibrosarcoma Tumors</h5>
                     <span class="mb-2 text-xs">Prediction based on:<span class="text-dark font-weight-bold ms-2">Biopsy
@@ -509,7 +515,7 @@
                     <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
                         class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View Details</a>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
