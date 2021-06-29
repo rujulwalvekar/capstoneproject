@@ -14,8 +14,10 @@ def get_events(calendarId):
     print("GService ", service)
     page_token = None
     while True:
+        start_time = datetime.now().replace(hour=0, minute=0).isoformat() + 'Z'
+        end_time = datetime.now().replace(hour=23, minute=59).isoformat() + 'Z'
         events = service.events().list(calendarId=calendarId, pageToken=page_token,
-                                       timeMin=Google.convert_to_RFC_datetime(2021, 6, 6, 0, 0),
-                                       timeMax=Google.convert_to_RFC_datetime(2021, 6, 6, 23, 59)).execute()
+                                       timeMin=start_time,
+                                       timeMax=end_time).execute()
         # pprint(events['items'][2]['attendees'][1]['responseStatus'])
         return events['items']  # Returns events of the day
