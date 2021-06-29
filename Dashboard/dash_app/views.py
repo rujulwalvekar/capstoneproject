@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -8,9 +8,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 # display homepage
 from Calendar import list_events
+from .forms import RegistrationForm
 from .models import Doctor, Patient
 from .operations.PatientManager import PatientManager
 from .operations.details import Details
+from .operations.validate_events_information import ValidateEventsInformation
 
 
 def homepage(request):
@@ -22,8 +24,12 @@ def homepage(request):
     return_data = {'username': username, 'patient_details': patient_details}
 
     try:
+        print('email', request.user.email)
         events = list_events.get_events(str(email))
-        return_data.update({'calendar_events': events})
+        validate_events_informations = ValidateEventsInformation(events=events)
+        validated_events = validate_events_informations.convert_event_datetime_to_military_time()
+        # print('validated_events', validated_events)
+        return_data.update({'calendar_events': validated_events})
     except Exception as e:
         print("Error while fetching calendar events", e)
     return render(request, "dashboard.html", return_data)
@@ -75,17 +81,17 @@ def signin(request):
     return render(request, "sign-in.html")
 
 
-@csrf_exempt
+# @csrf_exempt
 def signup(request):
     print('Signing up user GET')
     if request.method == 'POST':
         """
         Sign up a new user
         """
-        if request.POST['password_input_type'] and request.POST['email_input_type'] and request.POST['name_input_type']:
-            user_name = request.POST['name_input_type']
-            user_email = request.POST['email_input_type']
-            password = request.POST['password_input_type']
+        if request.POST['password1'] and request.POST['email'] and request.POST['username']:
+            user_name = request.POST['username']
+            user_email = request.POST['email']
+            password = request.POST['password1']
             try:
                 user = User.objects.create_user(username=user_name, email=user_email, password=password)
                 user.save()
@@ -97,6 +103,40 @@ def signup(request):
                 print("Error while signing up a user: {}".format(e))
     return render(request, "sign-up.html")
 
+# def signup(request):
+#     print('Signing up user GET')
+#     context = {}
+#     if request.method == 'POST':
+#         """
+#         Sign up a new user
+#         """
+#         form = RegistrationForm(request.POST)
+#         if not form.is_valid():
+#             # form.save()
+#             print('valid')
+#             if form.cleaned_data['password1'] and form.cleaned_data['email'] and form.cleaned_data['username']:
+#                 print('got ')
+#                 try:
+#                     user_name = form.cleaned_data['username']
+#                     user_email = form.cleaned_data['email']
+#                     password1 = form.cleaned_data['password1']
+#                     password2 = form.cleaned_data['password2']
+#                     # account = authenticate(email=user_email, password=password1)
+#                     # user = User.objects.create_user(username=user_name, email=user_email, password=password)
+#                     # user.save()
+#                     doctor = Doctor().create(name=user_name, email=user_email, phone_number=1234567899)
+#                     doctor.save()
+#                     login(request, account)
+#                     return HttpResponseRedirect('homepage/dashboard/')
+#                 except Exception as e:
+#                     print("Error while signing up a user: {}".format(e))
+#         else:
+#             context['form'] = form
+#     else:
+#         form = RegistrationForm()
+#         context['form'] = form
+#
+#     return render(request, "sign-up.html", context)
 
 def addpatient(request):
     if request.method == 'POST':
