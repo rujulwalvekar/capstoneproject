@@ -14,12 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link rel="stylesheet" href="{% static 'assets/css/nucleo-icons.css'%}">
-  <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
     <!-- CSS Files -->
-  <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/soft-ui-dashboard.css' %}">
+    <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/soft-ui-dashboard.css' %}">
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -29,7 +29,8 @@
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="{% url 'dashboard' %}">
-                <img src="{% static 'assets/img/local_hospitallogo.png' %}" class="navbar-brand-img h-100 w-15" alt="...">
+                <img src="{% static 'assets/img/local_hospitallogo.png' %}" class="navbar-brand-img h-100 w-15"
+                    alt="...">
                 <span class="ms-1 font-weight-bold">Auxilium</span>
             </a>
         </div>
@@ -247,7 +248,8 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="{%static 'assets/img/team-2.jpg' %}" class="avatar avatar-sm  me-3 ">
+                                                <img src="{%static 'assets/img/team-2.jpg' %}"
+                                                    class="avatar avatar-sm  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -361,7 +363,8 @@
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{%static 'assets/img/'|add:patient.name|add:'.jpeg' %}" alt="..." class="w-100 border-radius-lg shadow-sm">
+                            <img src="{%static 'assets/img/'|add:patient.name|add:'.jpeg' %}" alt="..."
+                                class="w-100 border-radius-lg shadow-sm">
                             <!-- <a href="javascript:;" -->
                             <a href="{% url 'addPatient' %}"
                                 class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2">
@@ -388,12 +391,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-8 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                    <!-- <div class="col-sm-4 col-8 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                         <div class="nav-wrapper position-relative end-0">
                             <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                <li class="nav-item">
+                                <li class="nav-item">-->
                                     <!-- Tab for Calendar -->
-                                    <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="javascript:;"
+                                   <!-- <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="javascript:;"
                                         role="tab" aria-controls="overview" aria-selected="true">
                                         <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42"
                                             version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -421,8 +424,8 @@
                                         </svg>
                                         <span class="ms-1">Appointment</span>
                                     </a>
-                                </li>
-                                <li class="nav-item">
+                                </li>-->
+                                <!-- <li class="nav-item">
                                     <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="javascript:;"
                                         role="tab" aria-controls="teams" aria-selected="false">
                                         <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44"
@@ -449,212 +452,177 @@
                                         </svg>
                                         <span class="ms-1">Schedule</span>
                                     </a>
-                                </li>
+                                </li> -->
 
-                            </ul>
+                            <!--</ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="container-fluid py-4">
-            <div class="row">
-                <div class="col-12 col-xl-4">
-                    <div class="card h-100">
-                        <div class="card-header pb-0 p-3">
-                            <h6 class="mb-0">More Details</h6>
-                        </div>
-                        <div class="card-body p-3">
-                            <h6 class="text-uppercase text-body text-xs font-weight-bolder">Details</h6>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 px-0">
-
-                                    <ul class="list-group ">
-                                        <li class="list-group-item border-0 "> &nbsp;
-                                            {{patient.phone_number}}</li>
-                                        <li class="list-group-item border-0 "> &nbsp;
-                                            {{patient.email}}</li>
-                                        <li class="list-group-item border-0 ">
-                                            &nbsp; {{patient.address}}</li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                            <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Your Notes</h6>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 px-0">
-                                    <div class="form-check form-switch ps-0">
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                            for="flexSwitchCheckDefault">Asthamatic</label>
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                            for="flexSwitchCheckDefault">Has PCOS</label>
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                            for="flexSwitchCheckDefault">Allergic to Penicillin</label>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                        </div>
+            <div class="col-12 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-header pb-0 p-3">
+                        <h6 class="mb-0">More Details</h6>
                     </div>
-                </div>
+                    <div class="card-body p-3">
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder">Details</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
 
-                <div class="col-md-5 mt-4">
-                    <div class="card h-100 mb-4">
-                        <div class="card h-100">
-                            <div class="card-header pb-0 p-3">
-                                <h6 class="mb-0">Patient Status</h6>
-                            </div>
-                            <div class="card-body p-3">
+                                <ul class="list-group ">
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.phone_number}}</li>
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.email}}</li>
+                                    <li class="list-group-item border-0 ">
+                                        &nbsp; {{patient.address}}</li>
+                                </ul>
+                            </li>
 
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 px-0">
-                                        <div class="form-check form-switch ps-0">
-                                            <input class="form-check-input ms-auto" type="checkbox"
-                                                id="flexSwitchCheckDefault" checked>
-                                            <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                                for="flexSwitchCheckDefault">Patient Active</label>
-                                        </div>
-                                    </li>
-
-                            </div>
-                        </div>
-                        <div class="card-header pb-0 px-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="mb-0">Previous treatment</h6>
+                        </ul>
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Your Notes</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <div class="form-check form-switch ps-0">
+                                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                                        for="flexSwitchCheckDefault">Asthamatic</label>
+                                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                                        for="flexSwitchCheckDefault">Has PCOS</label>
+                                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                                        for="flexSwitchCheckDefault">Allergic to Penicillin</label>
                                 </div>
-                                <div class="col-md-6 d-flex justify-content-end align-items-center">
-                                    <i class="far fa-calendar-alt me-2"></i>
-                                    <small>Apr 01, 2020 - Mar 31, 2021</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body pt-4 p-3">
-                            <ul class="list-group">
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">CT Scan</h6>
-                                            <span class="text-xs">27 January 2021, at 04:30 PM</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                        Bapat Hospital
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">X-ray</h6>
-                                            <span class="text-xs">27 January 2021, at 04:30 PM</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                        Bapat Hospital
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="list-group">
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">LFT,KFT Tests</h6>
-                                            <span class="text-xs">05 January 2021, at 1:45 PM</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                        Bhide Lab
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">CBC test</h6>
-                                            <span class="text-xs">24 November 2020, at 9:30 AM</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                        Jahangir Hospital
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">Blood Bag Administered</h6>
-                                            <span class="text-xs">08 October 2020, at 10:30 AM</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                        Ruby Clinic
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex align-items-center">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-up"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">Pneumonia treatment</h6>
-                                            <span class="text-xs">08 October 2020, at 11:00 AM</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-                                        Ruby Clinic
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                            </li>
+
+                        </ul>
+
                     </div>
                 </div>
             </div>
 
-            <footer class="footer pt-3">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-left">
-                                © <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="" class="font-weight-bold">From Pune</a>
+        </div>
+        <div class="container-fluid py-4">
+            <div class="col-12 col-xl-6">
+                <div class="card h-100">
+                    <br>
+                    <div class="card-header pb-0 p-3">
+                        <h6 class="mb-0">Prediction Models</h6>
+                    </div>
+                    <br>
+                    <div class="card-body p-3">
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder">Please upload the MRI files
+                        </h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                {% comment %} <h6 class="mb-0">Please upload the MRI files</h6> {% endcomment %}
+                                {% comment %} <ul class="list-group ">
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.phone_number}}</li>
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.email}}</li>
+                                    <li class="list-group-item border-0 ">
+                                        &nbsp; {{patient.address}}</li>
+                                </ul> {% endcomment %}
+                                <form method="post" enctype="multipart/form-data" action="/mripredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation1" type="file" multiple>
+                                    {% comment %} <input name="filelocation2" type="file"><br>
+                                    <input name="filelocation3" type="file"><br>
+                                    <input name="filelocation4" type="file"> {% endcomment %}
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
 
-                            </div>
-                        </div>
+                        </ul>
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the PET
+                            file</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/petpredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation5" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the XRAY
+                            Image</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/xraypredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation6" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the ECG
+                            Data file</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/ecgpredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation7" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the
+                            Breast Cancer Data file</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/breastpredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation8" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the
+                            Glomerelu Data file</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/glomerelupredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation9" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Please upload the
+                            Prostate Data file</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 px-0">
+                                <form method="post" enctype="multipart/form-data" action="/prostatpredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation10" type="file">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </li>
+
+                        </ul>
+
+
 
                     </div>
+
                 </div>
-            </footer>
+            </div>
+            
         </div>
-    </div>
-    </div>
 
     </div>
     <hr class="horizontal dark my-1">
@@ -662,8 +630,8 @@
     </div>
     <!--   Core JS Files   -->
     <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
-      <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
-      <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
+    <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{% static 'assets/js/soft-ui-dashboard.min.js' %}"></script>
     <script>
