@@ -40,12 +40,12 @@ def build_model():
     return model
 
 model=build_model()
-model.add_weight('/content/capstoneproj/Dashboard/dl/breast.h5')
+model.add_weight('/content/capstoneproject/Dashboard/dl/breast.h5')
 
 def breastpred(path):
     
 
-    loc = '/content/capstoneproj/Dashboard/' + path
+    loc = '/content/capstoneproject/Dashboard/' + path
     # img=tff.imread('/content/drive/MyDrive/weights/Breast_Cancer/00001b2b5609af42ab0ab276dd4cd41c3e7745b5.tif')
     img=tff.imread(loc)
 

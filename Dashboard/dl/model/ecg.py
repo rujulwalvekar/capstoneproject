@@ -7,7 +7,7 @@ from scipy import signal
 import matplotlib.pyplot as plt
 import pandas as pd
 
-model = tf.keras.models.load_model('/content/capstoneproj/Dashboard/dl/ecg.h5')
+model = tf.keras.models.load_model('/content/capstoneproject/Dashboard/dl/ecg.h5')
 
 
 def converttoSpectrogram(x):
@@ -27,7 +27,7 @@ def converttoSpectrogram(x):
 
 def prediction(file):
 
-    path = '/content/capstoneproj/Dashboard/'+ file
+    path = '/content/capstoneproject/Dashboard/'+ file
 
     train = pd.read_csv(path)
     temp = train.iloc[30,:-1].values
