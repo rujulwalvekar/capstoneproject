@@ -22,7 +22,7 @@ from .operations.details import Details
 from .operations.validate_events_information import ValidateEventsInformation
 
 
-def homepage(request):
+def get_homepage_user_details(request):
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
     email = details['user'].email
@@ -35,10 +35,15 @@ def homepage(request):
         events = list_events.get_events(str(email))
         validate_events_informations = ValidateEventsInformation(events=events)
         validated_events = validate_events_informations.update_info_of_events()
-        return_data.update({'calendar_events': validated_events, 'day': datetime_utilities.day_of_week(datetime.today().weekday())})
+        return_data.update(
+            {'calendar_events': validated_events, 'day': datetime_utilities.day_of_week(datetime.today().weekday())})
     except Exception as e:
         print("Error while fetching calendar events", e)
-    return render(request, "dashboard.html", return_data)
+    return return_data
+
+
+def homepage(request):
+    return render(request, "dashboard.html", get_homepage_user_details(request))
 
 
 def results(request):
@@ -54,7 +59,9 @@ def results(request):
     return render(request, "results.html")
 
 
-def profile(request):
+def profile(request, patient_id):
+    print('patient_it', patient_id)
+    # print('request_', request.value)
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
 
@@ -62,7 +69,7 @@ def profile(request):
     The bottom code is temporary.
     '''
     patients = details.get('patients')
-    details['patient'] = patients[0]
+    details['patient'] = patients[patient_id - 1]
     ''''''
     print("PATIENT ", details)
     return render(request, "profile.html", details)
@@ -111,6 +118,7 @@ def signup(request):
                 print("Error while signing up a user: {}".format(e))
     return render(request, "sign-up.html")
 
+
 # def signup(request):
 #     print('Signing up user GET')
 #     context = {}
@@ -152,10 +160,11 @@ def addpatient(request):
         required_patient_details = patient_manager_obj.all_required_fields_present()
         if required_patient_details:
             patient = Patient().create(
-                *required_patient_details
+                **required_patient_details
             )
             patient.save()
             # return HttpResponseRedirect('homepage/dashboard/')
+            return render(request, 'dashboard.html', get_homepage_user_details(request))
     return render(request, "addPatient.html")
 
 

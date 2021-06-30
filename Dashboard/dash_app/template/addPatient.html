@@ -292,7 +292,7 @@
       </span>
       <div class="contact-person-details">
         <form class="contact-form" id="myForm" action="{% url 'addPatient' %}" method="post">
-          {% csrf_token %} {{ form.as_p }}
+          {% csrf_token %}
           <div class="form-elements">
             <div class="form-group">
               <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
