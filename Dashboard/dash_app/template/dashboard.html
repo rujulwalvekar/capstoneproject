@@ -22,7 +22,7 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
   <!-- CSS Files -->
-  <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/soft-ui-dashboard.css' %}">
+  <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/ui-dashboard-cap.css' %}">
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -390,12 +390,7 @@
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold">{{patient.last_interaction}}</span>
                         </td>
-                        <!-- <td class="align-middle">
-                          <a href="{% url 'result' %}" id="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                            data-original-title="Edit/Delete user">
-                            Results
-                          </a>
-                        </td> -->
+                        
                         <td class="align-middle">
                           <a href="{% url 'overview' %}" id="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                             data-original-title="Edit/Delete user">
@@ -404,151 +399,7 @@
                         </td>
                       </tr>
                     {% endfor %}
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{% static 'assets/img/Suyash.jpeg' %}" class="avatar avatar-sm me-3">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Suyash Ladda</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">7758291172</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Bapat Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Referral</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-secondary">B+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">11/01/21</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img class="avatar avatar-sm me-3" src="{% static 'assets/img/bruce-mars.jpg' %}">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Sagar</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">020-25661504</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">City Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Referal</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-success">AB+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">19/09/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{%static 'assets/img/team-3.jpg' %}" class="avatar avatar-sm me-3">-->
 
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Sneha</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">66666666666</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Ruby Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Patient</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-success">B-</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">24/12/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{%static 'assets/img/neil.jpeg' %}" class="avatar avatar-sm me-3">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Neil Bhutada</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">8746299462</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Jahangir Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Patient</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-secondary">A+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">04/10/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-                      <!-- <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                              <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                          <p class="text-xs text-secondary mb-0">Developer</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                        </td>
-                        <td class="align-middle">
-                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit/Delete user">
-                            Edit/Delete
-                          </a>
-                        </td>
-                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -627,7 +478,7 @@
       <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
       <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-      <script src="{% static 'assets/js/soft-ui-dashboard.min.js' %}"></script>
+      <script src="{% static 'assets/js/ui-dashboard-cap.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/chartjs.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/Chart.extension.js' %}"></script>
       <script>
