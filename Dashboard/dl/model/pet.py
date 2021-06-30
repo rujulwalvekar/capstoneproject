@@ -10,7 +10,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
-model = tf.keras.models.load_model('/content/capstoneproj/Dashboard/dl//pet.h5')
+model = tf.keras.models.load_model('/content/capstoneproject/Dashboard/dl//pet.h5')
 
 
 def readImage(location,y_temp):
@@ -37,7 +37,7 @@ def getSegments_test(subject,y_temp):
 
 def output(file):
     
-    path = '/content/capstoneproj/Dashboard/'+ file
+    path = '/content/capstoneproject/Dashboard/'+ file
     image,_ = readImage(path,[])
     segments,_ = getSegments_test(image,[])
 

@@ -186,7 +186,7 @@ def mripredict(request):
     fs = OverwriteStorage()
     for count, x in enumerate(request.FILES.getlist("filelocation1")):
             def process(f):
-                with open('/content/capstoneproj/Dashboard//media/file_' + str(count), 'wb+') as destination:
+                with open('/content/capstoneproject/Dashboard//media/file_' + str(count), 'wb+') as destination:
                     for chunk in f.chunks():
                         destination.write(chunk)
             process(x)
@@ -221,7 +221,7 @@ def petpredict(request):
       context['b'] = 'AbNormal as per Ai'
       context['c'] = 'static/assets/img/abnormalpet.gif'
     
-    # path = '/content/capstoneproj/Dashboard/' + path
+    # path = '/content/capstoneproject/Dashboard/' + path
     # context['c'] = path
     return render(request, 'index.html', context)
 
@@ -245,7 +245,7 @@ def xraypredict(request):
     else:
       context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
       
-    # path2 = '/content/capstoneproj/Dashboard/media' + path
+    # path2 = '/content/capstoneproject/Dashboard/media' + path
     context['c'] = path
     # context['d'] = path2
     return render(request, 'index.html', context)
