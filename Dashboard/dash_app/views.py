@@ -247,17 +247,17 @@ def xraypredict(request):
     
     print(path)
     
-    detect(image=path)
-    # a = xray_pred(path)
-    # context={}
-    # context['a'] = 'The prediction for the XRay Image is '
-    # if(a==0):
-    #   context['b'] = 'Normal Xray, no Pneumonia found by Ai'
-    # else:
-    #   context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
+    # detect(image=path)
+    a = xray_pred(path)
+    context={}
+    context['a'] = 'The prediction for the XRay Image is '
+    if(a==0):
+      context['b'] = 'Normal Xray, no Pneumonia found by Ai'
+    else:
+      context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
       
-    # # path2 = '/content/capstoneproject/Dashboard/media' + path
-    # context['c'] = path
+    # path2 = '/content/capstoneproject/Dashboard/media' + path
+    context['c'] = path
     # context['d'] = path2
     return render(request, 'results.html')
 
