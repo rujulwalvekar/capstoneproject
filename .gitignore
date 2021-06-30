@@ -1,5 +1,6 @@
 .venv/
 .idea/
 __pycache__/
-Dashboard/dash_app/migrations/0009_auto_20210630_0123.py
 Dashboard/db.sqlite3
+Dashboard/token_calendar_v3.pickle
+.DS_Store
