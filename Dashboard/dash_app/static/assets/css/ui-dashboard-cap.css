@@ -2345,7 +2345,7 @@ progress {
 
 .form-control-plaintext {
   display: block;
-  width: 100%;
+  width: 50%;
   padding: 0.5rem 0;
   margin-bottom: 0;
   line-height: 1.4rem;
@@ -2433,7 +2433,7 @@ textarea.form-control-lg {
 
 .form-select {
   display: block;
-  width: 100%;
+  width: 50%;
   padding: 0.5rem 1rem 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 400;
@@ -12705,24 +12705,6 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
-
-/*!
-
-=========================================================
-* Soft UI Dashboard - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (site.license)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 .alert-primary {
   background-image: linear-gradient(310deg, #7928CA 0%, #d6006c 100%);
 }
