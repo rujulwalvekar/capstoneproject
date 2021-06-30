@@ -180,7 +180,7 @@ from ecg import prediction
 from xray import xray_pred
 from breast import breastpred
 from prostate import prostatepred
-
+from xray_model import detect
 class OverwriteStorage(FileSystemStorage):
 
     def get_available_name(self, name, max_length=None):
@@ -246,18 +246,20 @@ def xraypredict(request):
     print(filePathName6)
     
     print(path)
-    a = xray_pred(path)
-    context={}
-    context['a'] = 'The prediction for the XRay Image is '
-    if(a==0):
-      context['b'] = 'Normal Xray, no Pneumonia found by Ai'
-    else:
-      context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
+    
+    detect(image=path)
+    # a = xray_pred(path)
+    # context={}
+    # context['a'] = 'The prediction for the XRay Image is '
+    # if(a==0):
+    #   context['b'] = 'Normal Xray, no Pneumonia found by Ai'
+    # else:
+    #   context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
       
-    # path2 = '/content/capstoneproject/Dashboard/media' + path
-    context['c'] = path
+    # # path2 = '/content/capstoneproject/Dashboard/media' + path
+    # context['c'] = path
     # context['d'] = path2
-    return render(request, 'results.html', context)
+    return render(request, 'results.html')
 
 
 def ecgpredict(request):
