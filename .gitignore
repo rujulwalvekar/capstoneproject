@@ -1,4 +1,6 @@
 .venv/
 .idea/
 __pycache__/
-db.sqlite3
+Dashboard/db.sqlite3
+Dashboard/token_calendar_v3.pickle
+.DS_Store
