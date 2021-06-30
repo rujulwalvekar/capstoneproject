@@ -42,16 +42,16 @@ def homepage(request):
 
 
 def results(request):
-    details_obj = Details(request=request)
-    details = details_obj.get_patient_doctor_details()
+    # details_obj = Details(request=request)
+    # details = details_obj.get_patient_doctor_details()
 
-    '''
-    The bottom code is temporary.
-    '''
-    patients = details.get('patients')
-    details['patient'] = patients[0]
-    ''''''
-    return render(request, "results.html", details)
+    # '''
+    # The bottom code is temporary.
+    # '''
+    # patients = details.get('patients')
+    # details['patient'] = patients[0]
+    # ''''''
+    return render(request, "results.html")
 
 
 def profile(request):
@@ -195,7 +195,7 @@ def mripredict(request):
     context['b'] = 'Coloured regions indicate abnormality'
     context['c'] = 'static/assets/img/out.gif'
     
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
 
 
 def petpredict(request):
@@ -223,7 +223,7 @@ def petpredict(request):
     
     # path = '/content/capstoneproject/Dashboard/' + path
     # context['c'] = path
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
 
 
 def xraypredict(request):
@@ -248,7 +248,7 @@ def xraypredict(request):
     # path2 = '/content/capstoneproject/Dashboard/media' + path
     context['c'] = path
     # context['d'] = path2
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
 
 
 def ecgpredict(request):
@@ -276,7 +276,7 @@ def ecgpredict(request):
       context['b'] = 'AbNormal '
     elif(a[0][4]==0):
       context['b'] = 'AbNormal '    
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
 
 
 def breastpredict(request):
@@ -299,7 +299,7 @@ def breastpredict(request):
     
     context['c'] = path
       
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
 
 
 def glomerelupredict(request):
@@ -328,4 +328,4 @@ def prostatepredict(request):
     context['b']= a
     context['c'] = path
       
-    return render(request, 'index.html', context)
+    return render(request, 'results.html', context)
