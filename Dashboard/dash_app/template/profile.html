@@ -331,7 +331,7 @@
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid">
-            <div class="page-header min-height-150 border-radius-xl mt-4"
+            <div class="page-header min-height-200 border-radius-xl mt-4"
                 style="background-image: url({%static 'assets/img/curved-images/curved14.jpg' %}); background-position-y: 50%;">
             </div>
             <div class="card card-body blur shadow-blur mx-2 mt-n6">
@@ -360,9 +360,6 @@
                                     {{patient.phone_number}}</li>
                                 <li class="list-group-item border-0 "><strong class="text-dark">Email:</strong> &nbsp;
                                     {{patient.email}}</li>
-                                <li class="list-group-item border-0 "><strong class="text-dark">Location:</strong>
-                                    &nbsp; {{patient.address}}</li>
-
                             </ul>
                         </div>
                     </div>
@@ -378,9 +375,8 @@
                             <h4 class="mb-0">More Details</h4>
                         </div>
                         <div class="card-body p-3">
-                            <h5 class="text-uppercase text-body font-weight-bolder">Details</h5>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 px-0 text-xm">
+                            <h5 class="text-uppercase text-body font-weight-bolder">Home Address</h5>
+                            
 
                                     <ul class="list-group ">
                                         <li class="list-group-item border-0 "> &nbsp;
@@ -390,22 +386,20 @@
                                         <li class="list-group-item border-0 ">
                                             &nbsp; {{patient.address}}</li>
                                     </ul>
-                                </li>
-
-                            </ul>
+                                
                             <h5 class="text-uppercase text-body font-weight-bolder mt-4">Your Notes</h5>
                             <ul class="list-group">
-                                <li class="list-group-item border-0 px-0 text-xm">
-                                    <div class="form-check form-switch ps-0">
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-2"
-                                            for="flexSwitchCheckDefault">Asthamatic</label>
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                            for="flexSwitchCheckDefault">Has PCOS</label>
-                                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
-                                            for="flexSwitchCheckDefault">Allergic to Penicillin</label>
-                                    </div>
-                                </li>
-
+                                <ul class="list-group ">
+                                    <h6 class="text-uppercase text-body font-weight-bolder ">Allergies, If Any</h6>
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.allergies}}</li>
+                                        <h6 class="text-uppercase text-body font-weight-bolder ">Medications, If Any</h6>
+                                    <li class="list-group-item border-0 "> &nbsp;
+                                        {{patient.medications}}</li>
+                                        <h6 class="text-uppercase text-body font-weight-bolder">Observations, If Any</h6>
+                                    <li class="list-group-item border-0 ">
+                                        &nbsp; {{patient.observations}}</li>
+                                </ul>
                             </ul>
 
                         </div>
@@ -426,9 +420,7 @@
                                 
                             </div>
                         </div>
-                        <div class="card-body pt-4 p-3" >
-                            <a href="{% url 'result' %}">.</a>
-                            
+                        <div class="card-body pt-4 p-3" >                            
                             {% comment %} <h5 class="text-uppercase text-body  font-weight-bolder">MRI files</h5>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 px-0">
@@ -464,7 +456,7 @@
                             </ul>
              {% endcomment %}
 
-                                <h5 class="text-uppercase text-body font-weight-bolder mt-4">XRAY file</h5>
+                                <h5 class="text-uppercase text-body font-weight-bolder">XRAY file</h5>
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 px-0">
                                         <form method="post" enctype="multipart/form-data" action="/xraypredict">
