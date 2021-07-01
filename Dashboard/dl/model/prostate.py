@@ -27,6 +27,9 @@ def build_model(n):
     return model
 
 def prostatepred(path):
+    
+    path = '/content/capstoneproject/Dashboard/' + path
+
     model=build_model(5)
     model.load_weights('/content/capstoneproject/Dashboard/dl//prostate.h5')
     img=tf.image.decode_png(tf.io.read_file(path),channels=3)
