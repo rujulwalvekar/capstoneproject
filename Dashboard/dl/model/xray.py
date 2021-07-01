@@ -4,7 +4,7 @@ import cv2
 model = tf.keras.models.load_model('/content/capstoneproject/Dashboard/dl/xray.h5')
 
 
-def xray_pred(path):
+def xraypred(path):
     img = '/content/capstoneproject/Dashboard/' + path
     img = cv2.imread(img)
     img = cv2.resize(img,(150,150))

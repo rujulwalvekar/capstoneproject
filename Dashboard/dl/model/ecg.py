@@ -25,7 +25,7 @@ def converttoSpectrogram(x):
     os.remove('temp.jpg')
     return cv2.resize(image,(128,128))
 
-def prediction(file):
+def ecgpred(file):
 
     path = '/content/capstoneproject/Dashboard/'+ file
 

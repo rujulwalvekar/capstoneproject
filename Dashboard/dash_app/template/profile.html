@@ -420,38 +420,51 @@
                         <div class="card-header pb-0 px-3">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4 class="mb-0">Prediction Models</h4>
+                                    <h3 class="mb-0">Prediction Models</h3>
+                                    <h4 class="mb-0">Please Upload</h4>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="card-body pt-4 p-3" >
                             <a href="{% url 'result' %}">.</a>
-                            <h5 class="text-uppercase text-body  font-weight-bolder">Please upload the MRI files
-                            </h5>
+                            
+                            <h5 class="text-uppercase text-body  font-weight-bolder">MRI files</h5>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 px-0">
-                                    {% comment %} <h6 class="mb-0">Please upload the MRI files</h6> {% endcomment %}
-                                    {% comment %} <ul class="list-group ">
-                                        <li class="list-group-item border-0 "> &nbsp;
-                                            {{patient.phone_number}}</li>
-                                        <li class="list-group-item border-0 "> &nbsp;
-                                            {{patient.email}}</li>
-                                        <li class="list-group-item border-0 ">
-                                            &nbsp; {{patient.address}}</li>
-                                    </ul> {% endcomment %}
                                     <form method="post" enctype="multipart/form-data" action="/mripredict">
                                         {% csrf_token %}
                                         <input name="filelocation1" type="file" multiple>
-                                        {% comment %} <input name="filelocation2" type="file"><br>
-                                        <input name="filelocation3" type="file"><br>
-                                        <input name="filelocation4" type="file"> {% endcomment %}
                                         <input type="submit"class="genric-btn primary"value="Submit"style="float: right;margin-right: 32%;">
                                     </form>
                                 </li>
                                 </ul>
-                                <h5 class="text-uppercase text-body font-weight-bolder mt-4">Please upload the XRAY
-                                    Image</h5>
+
+                            <h5 class="text-uppercase text-body  font-weight-bolder">CET files</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 px-0">
+                                    <form method="post" enctype="multipart/form-data" action="/cetpredict">
+                                        {% csrf_token %}
+                                        <input name="filelocation20" type="file" multiple>
+                                        <input type="submit"class="genric-btn primary"value="Submit"style="float: right;margin-right: 32%;">
+                                    </form>
+                                </li>
+                                </ul>
+
+                            <h5 class="text-uppercase text-body text-xs font-weight-bolder mt-4">PET file</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 px-0">
+                                    <form method="post" enctype="multipart/form-data" action="/petpredict">
+                                    {% csrf_token %}
+                                    <input name="filelocation5" type="file" >
+                                    <input type="submit"class="genric-btn primary"value="Submit"style="float: right;margin-right: 32%;">
+                                    </form>
+                                </li>
+
+                            </ul>
+            
+
+                                <h5 class="text-uppercase text-body font-weight-bolder mt-4">XRAY file</h5>
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 px-0">
                                         <form method="post" enctype="multipart/form-data" action="/xraypredict">
@@ -461,11 +474,9 @@
                                            
                                         </form>
                                     </li>
-        
                                 </ul>
                                 
-                        <h5 class="text-uppercase text-body  font-weight-bolder mt-4">Please upload the ECG
-                            Data file</h5>
+                        <h5 class="text-uppercase text-body  font-weight-bolder mt-4">ECG file</h5>
                         <ul class="list-group">
                             <li class="list-group-item border-0 px-0">
                                 <form method="post" enctype="multipart/form-data" action="/ecgpredict">
@@ -478,8 +489,7 @@
                         </ul>
 
 
-                        <h5 class="text-uppercase text-body font-weight-bolder mt-4">Please upload the
-                            Breast Cancer Data file</h5>
+                        <h5 class="text-uppercase text-body font-weight-bolder mt-4">Breast Cancer Data file</h5>
                         <ul class="list-group">
                             <li class="list-group-item border-0 px-0">
                                 <form method="post" enctype="multipart/form-data" action="/breastpredict">
@@ -491,8 +501,7 @@
 
                         </ul>
 
-                        {% comment %} <h5 class="text-uppercase text-body font-weight-bolder mt-4">Please upload the
-                            Glomerelu Data file</h5>
+                       <h5 class="text-uppercase text-body font-weight-bolder mt-4">Glomerelu Data file</h5>
                         <ul class="list-group">
                             <li class="list-group-item border-0 px-0">
                                 <form method="post" enctype="multipart/form-data" action="/glomerelupredict">
@@ -502,11 +511,10 @@
                                 </form>
                             </li>
 
-                        </ul> {% endcomment %}
+                        </ul> 
 
 
-                        <h5 class="text-uppercase text-body  font-weight-bolder mt-4">Please upload the
-                            Prostate Data file</h5>
+                        <h5 class="text-uppercase text-body  font-weight-bolder mt-4">Prostate Data file</h5>
                         <ul class="list-group">
                             <li class="list-group-item border-0 px-0">
                                 <form method="post" enctype="multipart/form-data" action="/prostatepredict">

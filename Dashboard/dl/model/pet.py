@@ -35,7 +35,7 @@ def getSegments_test(subject,y_temp):
 
 
 
-def output(file):
+def petpred(file):
     
     path = '/content/capstoneproject/Dashboard/'+ file
     image,_ = readImage(path,[])
