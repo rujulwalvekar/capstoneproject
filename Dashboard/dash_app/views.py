@@ -207,11 +207,11 @@ def mripredict(request):
     process_pipeline(paths, fname='/dash_app/static/dash_app/mriout.gif')
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
-    context['c'] = '/dash_app/static/dash_app/mriout.gif'
+    context['c'] = 'static/assets/img/mriout.gif'
     
     return render(request, 'results.html', context)
 
-def cetprediction(request):
+def cetpredict(request):
 
     context={}
     paths = []
@@ -226,7 +226,7 @@ def cetprediction(request):
             
     context['a'] = 'The Results for CET Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
-    context['c'] = '/dash_app/static/dash_app/cetout.gif'
+    context['c'] = 'static/assets/img/cetout.gif'
     
     return render(request, 'results.html', context)
 
@@ -250,7 +250,7 @@ def petpredict(request):
     else:
         context['b'] = 'AbNormal as per Ai'
 
-    context['c'] = 'dash_app/static/dash_app/petout.gif'
+    context['c'] = 'static/assets/img/petout.gif'
     # path = '/content/capstoneproject/Dashboard/' + path
     # context['c'] = path
     return render(request, 'results.html', context)
@@ -274,10 +274,10 @@ def xraypredict(request):
     context['a'] = 'The prediction for the XRay Image is '
     if(a==0):
       context['b'] = 'Normal Xray, no Pneumonia found by Ai'
-      context['c'] = 'dash_app/static/dash_app/xrayoutn.jpg'
+      context['c'] = 'static/assets/img/xrayoutn.jpg'
     else:
       context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
-      context['c'] = 'dash_app/static/dash_app/xrayouta.jpg'
+      context['c'] = 'static/assets/img/xrayouta.jpg'
 
     return render(request, 'results.html', context)
 
