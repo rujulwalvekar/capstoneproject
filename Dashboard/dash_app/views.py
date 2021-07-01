@@ -300,10 +300,19 @@ def breastpredict(request):
 
 def glomerelupredict(request):
 
-    a = glomerelupred()
+    fs=FileSystemStorage()
+    print("Inside prostate function")
+    fileObj = request.FILES['filelocation9']
+    filePathName9 = fs.save(fileObj.name, fileObj)
+    filePathName9 = fs.url(fileObj.name)
+    path = filePathName9
+    print(filePathName9)
+    
+    print(path)
+    a = glomerelupred(path)
     context={}
-    context['a'] = 'The Results for Glomerelu is '
-    context['b']= a
+    context['a'] = 'The Results for Glomerelu'
+    context['b']= 'The Coloured spots indicate Anamoly'
     context['c'] = 'static/assets/img/glomereluout.png'
       
     return render(request, 'results.html', context)
@@ -322,7 +331,7 @@ def prostatepredict(request):
     a = prostatepred(path)
     context={}
     context['a'] = 'The Results for Prostate Cancer is '
-    context['b']= a
+    context['b']=  'Tissue Level is ' + a 
     context['c'] = 'static/assets/img/prostateout.png'
       
     return render(request, 'results.html', context)
