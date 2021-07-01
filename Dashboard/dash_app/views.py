@@ -59,9 +59,9 @@ def results(request):
     return render(request, "results.html")
 
 
-def profile(request):
+def profile(request, patient_id):
     # print('patient_it')
-    patient_id = 1
+    # patient_id = 1
     # print('request_', request.value)
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
@@ -174,7 +174,7 @@ def mripredict(request):
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
     context['c'] = 'static/assets/img/mriout.gif'
-    
+
     return render(request, 'results.html', context)
 
 def cetpredict(request):
@@ -189,15 +189,15 @@ def cetpredict(request):
                     for chunk in f.chunks():
                         destination.write(chunk)
             process(x)
-            
+
     context['a'] = 'The Results for CET Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
     context['c'] = 'static/assets/img/cetout.gif'
-    
+
     return render(request, 'results.html', context)
 
 def petpredict(request):
-    
+
     fs=FileSystemStorage()
 
     fileObj = request.FILES['filelocation5']
@@ -205,14 +205,14 @@ def petpredict(request):
     filePathName5 = fs.url(fileObj.name)
     path = filePathName5
     print(filePathName5)
-    
+
     print(path)
 
     a = petpred(path)
     context={}
     context['a'] = 'The Results for PET Scans are '
     if(a==0):
-        context['b'] = 'Normal as per Ai'    
+        context['b'] = 'Normal as per Ai'
     else:
         context['b'] = 'AbNormal as per Ai'
 
@@ -231,9 +231,9 @@ def xraypredict(request):
     filePathName6 = fs.url(fileObj.name)
     path = filePathName6
     print(filePathName6)
-    
+
     print(path)
-    
+
     # detect(image=path)
     a = xraypred(path)
     context={}
@@ -256,7 +256,7 @@ def ecgpredict(request):
     filePathName7 = fs.url(fileObj.name)
     path = filePathName7
     print(filePathName7)
-    
+
     print(path)
     a = ecgpred(path)
     context={}
@@ -270,7 +270,7 @@ def ecgpredict(request):
     elif(a[0][3]==0):
       context['b'] = 'AbNormal '
     elif(a[0][4]==0):
-      context['b'] = 'AbNormal '    
+      context['b'] = 'AbNormal '
     context['c'] = 'static/assets/img/ecgout.jpg'
     return render(request, 'results.html', context)
 
@@ -283,7 +283,7 @@ def breastpredict(request):
     filePathName8 = fs.url(fileObj.name)
     path = filePathName8
     print(filePathName8)
-    
+
     print(path)
     a = breastpred(path)
     context={}
@@ -292,9 +292,9 @@ def breastpredict(request):
       context['b'] = 'Cancer cells are present'
     else:
       context['b'] = 'Cancer Cells are not present '
-    
+
     context['c'] = 'static/assets/img/breastout.gif'
-      
+
     return render(request, 'results.html', context)
 
 
@@ -307,14 +307,14 @@ def glomerelupredict(request):
     filePathName9 = fs.url(fileObj.name)
     path = filePathName9
     print(filePathName9)
-    
+
     print(path)
     a = glomerelupred(path)
     context={}
     context['a'] = 'The Results for Glomerelu'
     context['b']= 'The Coloured spots indicate Anamoly'
     context['c'] = 'static/assets/img/glomereluout.png'
-      
+
     return render(request, 'results.html', context)
 
 def prostatepredict(request):
@@ -326,12 +326,12 @@ def prostatepredict(request):
     filePathName10 = fs.url(fileObj.name)
     path = filePathName10
     print(filePathName10)
-    
+
     print(path)
     a = prostatepred(path)
     context={}
     context['a'] = 'The Results for Prostate Cancer is '
-    context['b']=  'Tissue Level is ' + str(a) 
+    context['b']=  'Tissue Level is ' + str(a)
     context['c'] = 'static/assets/img/prostateout.png'
-      
+
     return render(request, 'results.html', context)
