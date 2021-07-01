@@ -33,10 +33,10 @@ def get_homepage_user_details(request):
     try:
         print('email', request.user.email)
         events = list_events.get_events(str(email))
-        validate_events_informations = ValidateEventsInformation(events=events)
-        validated_events = validate_events_informations.update_info_of_events()
+        # validate_events_informations = ValidateEventsInformation(events=events)
+        # validated_events = validate_events_informations.update_info_of_events()
         return_data.update(
-            {'calendar_events': validated_events, 'day': datetime_utilities.day_of_week(datetime.today().weekday())})
+            {'calendar_events': events, 'day': datetime_utilities.day_of_week(datetime.today().weekday())})
     except Exception as e:
         print("Error while fetching calendar events", e)
     return return_data
@@ -170,7 +170,7 @@ def mripredict(request):
                     for chunk in f.chunks():
                         destination.write(chunk)
             process(x)
-    process_pipeline(paths, fname='/dash_app/static/dash_app/mriout.gif')
+    # process_pipeline(paths, fname='/dash_app/static/dash_app/mriout.gif')
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
     context['c'] = 'static/assets/img/mriout.gif'
