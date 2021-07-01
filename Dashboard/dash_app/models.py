@@ -36,11 +36,12 @@ class Patient(models.Model):
     last_interaction = models.DateField(default=datetime.now())
 
     @classmethod
-    def create(cls, name, gender, date_of_birth, email, phone_number, birth_place, country, state):
+    def create(cls, name, gender, date_of_birth,address, email, phone_number, birth_place, country, state):
         patient = cls(
             name=name,
             gender=gender,
             date_of_birth=date_of_birth,
+            address=address,
             email=email,
             phone_number=phone_number,
             birth_place=birth_place,
