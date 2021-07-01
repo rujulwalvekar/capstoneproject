@@ -331,7 +331,7 @@ def prostatepredict(request):
     a = prostatepred(path)
     context={}
     context['a'] = 'The Results for Prostate Cancer is '
-    context['b']=  'Tissue Level is ' + a 
+    context['b']=  'Tissue Level is ' + str(a) 
     context['c'] = 'static/assets/img/prostateout.png'
       
     return render(request, 'results.html', context)
