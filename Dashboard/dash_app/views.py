@@ -60,7 +60,8 @@ def results(request):
 
 
 def profile(request, patient_id):
-    print('patient_it', patient_id)
+    print('patient_it')
+    patient_id = 1
     # print('request_', request.value)
     details_obj = Details(request=request)
     details = details_obj.get_patient_doctor_details()
@@ -171,6 +172,9 @@ def addpatient(request):
 def view_calendar_events(request):
     email = request.user.email
     events = list_events.get_events(str(email))
+
+
+
 import sys
 sys.path.insert(1, 'dl/model')
 
@@ -192,7 +196,6 @@ class OverwriteStorage(FileSystemStorage):
 def mripredict(request):
     context={}
     paths = []
-#    fs = OverwriteStorage()
     print("*******************************")
     fs = OverwriteStorage()
     for count, x in enumerate(request.FILES.getlist("filelocation1")):
@@ -201,20 +204,30 @@ def mripredict(request):
                     for chunk in f.chunks():
                         destination.write(chunk)
             process(x)
-    # process_pipeline(paths, fname='dash_app/static/assets/img/mriout.gif')
+    process_pipeline(paths, fname='/dash_app/static/dash_app/mriout.gif')
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
-    context['c'] = 'static/assets/img/mriout.gif'
+    context['c'] = '/dash_app/static/dash_app/mriout.gif'
     
     return render(request, 'results.html', context)
 
 def cetprediction(request):
 
-    a = cetpred()
-    context = {}
-    context['a'] = 'the results for CET Scan are'
-    context['b'] = a
-    context['c'] = 'static/assets/img/cetout.gif'
+    context={}
+    paths = []
+    print("*******************************")
+    fs = OverwriteStorage()
+    for count, x in enumerate(request.FILES.getlist("filelocation2")):
+            def process(f):
+                with open('/content/capstoneproject/Dashboard//media/file_' + str(count), 'wb+') as destination:
+                    for chunk in f.chunks():
+                        destination.write(chunk)
+            process(x)
+            
+    context['a'] = 'The Results for CET Scans are'
+    context['b'] = 'Coloured regions indicate abnormality'
+    context['c'] = '/dash_app/static/dash_app/cetout.gif'
+    
     return render(request, 'results.html', context)
 
 def petpredict(request):
@@ -235,9 +248,9 @@ def petpredict(request):
     if(a==0):
         context['b'] = 'Normal as per Ai'    
     else:
-      context['b'] = 'AbNormal as per Ai'
+        context['b'] = 'AbNormal as per Ai'
 
-    context['c'] = 'static/assets/img/petout.gif'
+    context['c'] = 'dash_app/static/dash_app/petout.gif'
     # path = '/content/capstoneproject/Dashboard/' + path
     # context['c'] = path
     return render(request, 'results.html', context)
@@ -261,10 +274,10 @@ def xraypredict(request):
     context['a'] = 'The prediction for the XRay Image is '
     if(a==0):
       context['b'] = 'Normal Xray, no Pneumonia found by Ai'
-      context['c'] = 'static/assets/img/xrayoutn.jpg'
+      context['c'] = 'dash_app/static/dash_app/xrayoutn.jpg'
     else:
       context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
-      context['c'] = 'static/assets/img/xrayouta.jpg'
+      context['c'] = 'dash_app/static/dash_app/xrayouta.jpg'
 
     return render(request, 'results.html', context)
 
@@ -292,7 +305,7 @@ def ecgpredict(request):
       context['b'] = 'AbNormal '
     elif(a[0][4]==0):
       context['b'] = 'AbNormal '    
-    context['c'] = 'static/assets/img/ecgout.jpg'
+    context['c'] = 'dash_app/static/dash_app/ecgout.jpg'
     return render(request, 'results.html', context)
 
 
@@ -325,7 +338,7 @@ def glomerelupredict(request):
     context={}
     context['a'] = 'The Results for Glomerelu is '
     context['b']= a
-    context['c'] = 'media'
+    context['c'] = 'dash_app/static/dash_app/ecgout.gif'
       
     return render(request, 'results.html', context)
 
