@@ -59,8 +59,8 @@ def results(request):
     return render(request, "results.html")
 
 
-def profile(request, patient_id):
-    print('patient_it')
+def profile(request):
+    # print('patient_it')
     patient_id = 1
     # print('request_', request.value)
     details_obj = Details(request=request)
@@ -120,40 +120,6 @@ def signup(request):
     return render(request, "sign-up.html")
 
 
-# def signup(request):
-#     print('Signing up user GET')
-#     context = {}
-#     if request.method == 'POST':
-#         """
-#         Sign up a new user
-#         """
-#         form = RegistrationForm(request.POST)
-#         if not form.is_valid():
-#             # form.save()
-#             print('valid')
-#             if form.cleaned_data['password1'] and form.cleaned_data['email'] and form.cleaned_data['username']:
-#                 print('got ')
-#                 try:
-#                     user_name = form.cleaned_data['username']
-#                     user_email = form.cleaned_data['email']
-#                     password1 = form.cleaned_data['password1']
-#                     password2 = form.cleaned_data['password2']
-#                     # account = authenticate(email=user_email, password=password1)
-#                     # user = User.objects.create_user(username=user_name, email=user_email, password=password)
-#                     # user.save()
-#                     doctor = Doctor().create(name=user_name, email=user_email, phone_number=1234567899)
-#                     doctor.save()
-#                     login(request, account)
-#                     return HttpResponseRedirect('homepage/dashboard/')
-#                 except Exception as e:
-#                     print("Error while signing up a user: {}".format(e))
-#         else:
-#             context['form'] = form
-#     else:
-#         form = RegistrationForm()
-#         context['form'] = form
-#
-#     return render(request, "sign-up.html", context)
 
 def addpatient(request):
     if request.method == 'POST':
@@ -305,7 +271,7 @@ def ecgpredict(request):
       context['b'] = 'AbNormal '
     elif(a[0][4]==0):
       context['b'] = 'AbNormal '    
-    context['c'] = 'dash_app/static/dash_app/ecgout.jpg'
+    context['c'] = 'static/assets/img/ecgout.jpg'
     return render(request, 'results.html', context)
 
 
@@ -327,7 +293,7 @@ def breastpredict(request):
     else:
       context['b'] = 'Cancer Cells are not present '
     
-    context['c'] = path
+    context['c'] = 'static/assets/img/breastout.gif'
       
     return render(request, 'results.html', context)
 
@@ -338,7 +304,7 @@ def glomerelupredict(request):
     context={}
     context['a'] = 'The Results for Glomerelu is '
     context['b']= a
-    context['c'] = 'dash_app/static/dash_app/ecgout.gif'
+    context['c'] = 'static/assets/img/glomereluout.png'
       
     return render(request, 'results.html', context)
 
@@ -357,6 +323,6 @@ def prostatepredict(request):
     context={}
     context['a'] = 'The Results for Prostate Cancer is '
     context['b']= a
-    context['c'] = path
+    context['c'] = 'static/assets/img/prostateout.png'
       
     return render(request, 'results.html', context)
