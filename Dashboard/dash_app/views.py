@@ -175,12 +175,14 @@ import sys
 sys.path.insert(1, 'dl/model')
 
 from backend_brain_pipeline import process_pipeline
-from pet import output
-from ecg import prediction
-from xray import xray_pred
+from cet import cetpred
+from pet import petpred
+from xray import xraypred
+from ecg import ecgpred
 from breast import breastpred
 from prostate import prostatepred
-from xray_model import detect
+from glomerelu import glomerelupred
+
 class OverwriteStorage(FileSystemStorage):
 
     def get_available_name(self, name, max_length=None):
@@ -202,10 +204,18 @@ def mripredict(request):
     # process_pipeline(paths, fname='dash_app/static/assets/img/mriout.gif')
     context['a'] = 'The Results for MRI Scans are'
     context['b'] = 'Coloured regions indicate abnormality'
-    context['c'] = 'static/assets/img/out.gif'
+    context['c'] = 'static/assets/img/mriout.gif'
     
     return render(request, 'results.html', context)
 
+def cetprediction(request):
+
+    a = cetpred()
+    context = {}
+    context['a'] = 'the results for CET Scan are'
+    context['b'] = a
+    context['c'] = 'static/assets/img/cetout.gif'
+    return render(request, 'results.html', context)
 
 def petpredict(request):
     
@@ -219,17 +229,15 @@ def petpredict(request):
     
     print(path)
 
-    a = output(path)
+    a = petpred(path)
     context={}
     context['a'] = 'The Results for PET Scans are '
     if(a==0):
-        context['b'] = 'Normal as per Ai'
-        context['c'] = 'static/assets/img/normalpet.gif'
-    
+        context['b'] = 'Normal as per Ai'    
     else:
       context['b'] = 'AbNormal as per Ai'
-      context['c'] = 'static/assets/img/abnormalpet.gif'
-    
+
+    context['c'] = 'static/assets/img/petout.gif'
     # path = '/content/capstoneproject/Dashboard/' + path
     # context['c'] = path
     return render(request, 'results.html', context)
@@ -248,18 +256,17 @@ def xraypredict(request):
     print(path)
     
     # detect(image=path)
-    a = xray_pred(path)
+    a = xraypred(path)
     context={}
     context['a'] = 'The prediction for the XRay Image is '
     if(a==0):
       context['b'] = 'Normal Xray, no Pneumonia found by Ai'
+      context['c'] = 'static/assets/img/xrayoutn.jpg'
     else:
       context['b'] = 'AbNormal Xray, Pneumonia found by Ai'
-      
-    # path2 = '/content/capstoneproject/Dashboard/media' + path
-    context['c'] = path
-    # context['d'] = path2
-    return render(request, 'results.html')
+      context['c'] = 'static/assets/img/xrayouta.jpg'
+
+    return render(request, 'results.html', context)
 
 
 def ecgpredict(request):
@@ -272,21 +279,20 @@ def ecgpredict(request):
     print(filePathName7)
     
     print(path)
-    a = prediction(path)
+    a = ecgpred(path)
     context={}
     context['a'] = 'The Results for ECG are '
     if(a[0][0]==0):
       context['b'] = 'Non-ectopic Beats'
-      context['c'] = 'capstoneproj\Dashboard\dash_app\static\assets\img\abnormalpet.gif'
     elif(a[0][1]==0):
       context['b'] = 'Fusion Beats '
-      context['c'] = 'capstoneproj\Dashboard\dash_app\static\assets\img\abnormalpet.gif'
     elif(a[0][2]==0):
       context['b'] = 'AbNormal '
     elif(a[0][3]==0):
       context['b'] = 'AbNormal '
     elif(a[0][4]==0):
       context['b'] = 'AbNormal '    
+    context['c'] = 'static/assets/img/ecgout.jpg'
     return render(request, 'results.html', context)
 
 
@@ -315,27 +321,28 @@ def breastpredict(request):
 
 def glomerelupredict(request):
 
-    return HttpResponse("Glomerelu")
-
+    a = glomerelupred()
+    context={}
+    context['a'] = 'The Results for Glomerelu is '
+    context['b']= a
+    context['c'] = 'media'
+      
+    return render(request, 'results.html', context)
 
 def prostatepredict(request):
 
     fs=FileSystemStorage()
     print("Inside prostate function")
-    fileObj = request.FILES['filelocation9']
-    filePathName9 = fs.save(fileObj.name, fileObj)
-    filePathName9 = fs.url(fileObj.name)
-    path = filePathName9
-    print(filePathName9)
+    fileObj = request.FILES['filelocation10']
+    filePathName10 = fs.save(fileObj.name, fileObj)
+    filePathName10 = fs.url(fileObj.name)
+    path = filePathName10
+    print(filePathName10)
     
     print(path)
     a = prostatepred(path)
     context={}
-    context['a'] = 'The Results for Prostate Cancer are '
-    # if(a==0):
-    #   context['b'] = 'Cancer cells are present'
-    # else:
-    #   context['b'] = 'Cancer Cells are not present '
+    context['a'] = 'The Results for Prostate Cancer is '
     context['b']= a
     context['c'] = path
       
