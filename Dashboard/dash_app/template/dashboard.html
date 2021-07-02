@@ -22,7 +22,7 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'assets/css/nucleo-svg.css' %}">
   <!-- CSS Files -->
-  <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/soft-ui-dashboard.css' %}">
+  <link id="pagestyle" rel="stylesheet" href="{% static 'assets/css/ui-dashboard-cap.css' %}">
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -68,70 +68,12 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link  " href="{% url 'result' %}">
-            <div
-              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>office</title>
-                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="Rounded-Icons" transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                    fill-rule="nonzero">
-                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
-                      <g id="office" transform="translate(153.000000, 2.000000)">
-                        <path class="color-background"
-                          d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"
-                          id="Path" opacity="0.6"></path>
-                        <path class="color-background"
-                          d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"
-                          id="Shape"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <span class="nav-link-text ms-1">Patient Results</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link  " href="{% url 'overview' %}">
-            <div
-              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>customer-support</title>
-                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
-                    fill-rule="nonzero">
-                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
-                      <g id="customer-support" transform="translate(1.000000, 0.000000)">
-                        <path class="color-background"
-                          d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"
-                          id="Path" opacity="0.59858631"></path>
-                        <path class="color-foreground"
-                          d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z"
-                          id="Path"></path>
-                        <path class="color-foreground"
-                          d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"
-                          id="Path"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <span class="nav-link-text ms-1">Patient Overview</span>
-          </a>
-        </li>
-
 
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link  " href="{% url 'sign-in' %}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -158,10 +100,11 @@
             </div>
             <span class="nav-link-text ms-1">Sign In</span>
           </a>
-        </li>
+        </li> -->
 
         <li class="nav-item">
           <a class="nav-link  " href="{% url 'sign-up' %}">
+                 <!-- <a class="nav-link  " href="must add logout"> -->
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +133,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
+            <span class="nav-link-text ms-1">Logout</span>
           </a>
         </li>
       </ul>
@@ -213,12 +156,12 @@
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
+            <!-- <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -389,165 +332,16 @@
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold">{{patient.last_interaction}}</span>
                         </td>
+                        
                         <td class="align-middle">
-                          <a href="{% url 'result' %}" id="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                            data-original-title="Edit/Delete user">
-                            Results
-                          </a>
-                        </td>
-                        <td class="align-middle">
-                          <a href="{% url 'result' %}" id="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                          <a href="/homepage/overview/{{patient.id}}" id="overview-btn" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                             data-original-title="Edit/Delete user">
                             Overview
                           </a>
                         </td>
                       </tr>
                     {% endfor %}
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{% static 'assets/img/Suyash.jpeg' %}" class="avatar avatar-sm me-3">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Suyash Ladda</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">7758291172</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Bapat Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Referral</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-secondary">B+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">11/01/21</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img class="avatar avatar-sm me-3" src="{% static 'assets/img/bruce-mars.jpg' %}">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Sagar</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">020-25661504</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">City Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Referal</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-success">AB+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">19/09/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{%static 'assets/img/team-3.jpg' %}" class="avatar avatar-sm me-3">-->
 
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Sneha</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">66666666666</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Ruby Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Patient</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-success">B-</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">24/12/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-<!--                      <tr>-->
-<!--                        <td>-->
-<!--                          <div class="d-flex px-2 py-1">-->
-<!--                            <div>-->
-<!--                              <img src="{%static 'assets/img/neil.jpeg' %}" class="avatar avatar-sm me-3">-->
-<!--                            </div>-->
-<!--                            <div class="d-flex flex-column justify-content-center">-->
-<!--                              <h6 class="mb-0 text-sm">Neil Bhutada</h6>-->
-<!--                              <p class="text-xs text-secondary mb-0">8746299462</p>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                          <p class="text-xs font-weight-bold mb-0">Jahangir Hospital</p>-->
-<!--                          <p class="text-xs text-secondary mb-0">Patient</p>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center text-sm">-->
-<!--                          <span class="badge badge-sm bg-gradient-secondary">A+</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle text-center">-->
-<!--                          <span class="text-secondary text-xs font-weight-bold">04/10/20</span>-->
-<!--                        </td>-->
-<!--                        <td class="align-middle">-->
-<!--                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"-->
-<!--                            data-original-title="Edit/Delete user">-->
-<!--                            Edit/Delete-->
-<!--                          </a>-->
-<!--                        </td>-->
-<!--                      </tr>-->
-                      <!-- <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                              <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                          <p class="text-xs text-secondary mb-0">Developer</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                        </td>
-                        <td class="align-middle">
-                          <a href="#!" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit/Delete user">
-                            Edit/Delete
-                          </a>
-                        </td>
-                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -555,16 +349,77 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-md-6">
           <div class="card h-100">
             <div class="card-header pb-0">
               <h6>Your Schedule</h6>
+
               <p class="text-sm">
-                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                <span class="font-weight-bold">Appointments</span> today
+                <i class="ni ni-time-alarm text-warning text-gradient"></i>
+                <!-- <i class="fa fa-arrow-up text-success" aria-hidden="true"></i> -->
+                Appointments today<span class="font-weight-bold"> {{day}}</span>
               </p>
             </div>
+           {% for event in calendar_events %}
             <div class="card-body p-3">
+              <div class="timeline timeline-one-side">
+                <div class="timeline-block mb-3">
+                    <span class="timeline-step">
+                      <i class="ni ni-bell-55 text-info text-gradient"></i>
+                    </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">{{event.summary}}</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"> Attendees: </p>
+                    {% for attendee in event.attendees %}
+                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{attendee.email}}</p>
+                    {% endfor %}
+
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{event.start}} - {{event.end}}</p>
+                  </div>
+                </div>
+                <!-- <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="ni ni-ambulance text-danger text-gradient"></i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Consultation Session</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">1 PM</p>
+                  </div>
+                </div> -->
+                <!-- <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="ni ni-bell-55 text-info text-gradient"></i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">IMA Conference</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">3PM</p>
+                  </div>
+                </div> -->
+                <!-- <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="ni ni-time-alarm text-warning text-gradient"></i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">OPD @ Bapat Hospital</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">6PM</p>
+                  </div>
+                </div> -->
+
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    
+                  </span>
+<!--                  <div class="timeline-content">-->
+<!--                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">End of Day</p>-->
+<!--                  </div>-->
+                </div>
+
+
+              </div>
+            </div>
+            {% endfor %}
+<div class="card-body p-3">
               <div class="timeline timeline-one-side">
                 <div class="timeline-block mb-3">
                   <span class="timeline-step">
@@ -624,16 +479,16 @@
                 </div> -->
               </div>
             </div>
+          
           </div>
         </div>
       </div>
-
       <!--   Core JS Files   -->
       <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
       <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
       <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-      <script src="{% static 'assets/js/soft-ui-dashboard.min.js' %}"></script>
+      <script src="{% static 'assets/js/ui-dashboard-cap.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/chartjs.min.js' %}"></script>
       <script src="{% static 'assets/js/plugins/Chart.extension.js' %}"></script>
       <script>

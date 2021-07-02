@@ -24,4 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.signin, name='sign-in'),
     path('sign-up', views.signup, name='sign-up'),
+    path('mripredict', views.mripredict, name='mripredict'),
+    path('cetpredict', views.cetpredict, name='cetpredict'),
+    path('petpredict', views.petpredict, name='petpredict'),
+    path('xraypredict', views.xraypredict, name='xraypredict'),
+    path('ecgpredict', views.ecgpredict, name='ecgpredict'),
+    path('breastpredict', views.breastpredict, name='breastpredict'),
+    path('glomerelupredict', views.glomerelupredict, name='glomerelupredict'),
+    path('prostatepredict', views.prostatepredict, name='prostatepredict'),
+
 ]

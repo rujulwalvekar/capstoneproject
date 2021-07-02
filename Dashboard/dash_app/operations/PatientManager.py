@@ -9,8 +9,10 @@ class PatientManager(object):
         required_patient_details = {}
         if self.patient_details['name'] and self.patient_details['gender'] and self.patient_details['date_of_birth'] and \
            self.patient_details['email'] and self.patient_details['phone_number'] and self.patient_details['birth_place'] \
-                and self.patient_details['country']:
+                and self.patient_details['country'] and self.patient_details['state']:
             required_patient_details = dict(self.patient_details.lists())
             required_patient_details.pop('csrfmiddlewaretoken')
+            for key, value in required_patient_details.items():
+                required_patient_details[key] = value[0]
             return required_patient_details
         return required_patient_details
