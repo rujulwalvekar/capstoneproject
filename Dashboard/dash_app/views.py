@@ -177,6 +177,7 @@ def mripredict(request):
     context['d'] = 'Red - Necrotic and Non-enhancing tumor core (NCR) 10%'
     context['e'] = 'Green - Peritumoral Edema (ED) 8%'
     context['f'] = 'Blue - GD - Enhancing Tumor (ET) 12%'
+
     return render(request, 'results.html', context)
 
 def cetpredict(request):
@@ -198,6 +199,7 @@ def cetpredict(request):
     context['d'] = 'Red - Necrotic and Non-enhancing tumor core (NCR) 10%'
     context['e'] = 'Green - Peritumoral Edema (ED) 8%'
     context['f'] = 'Blue - GD - Enhancing Tumor (ET) 12%'
+
 
     return render(request, 'results.html', context)
 
