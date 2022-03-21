@@ -4,4 +4,4 @@ django-connection-url==0.1.2
 mysqlclient==2.0.3
 pytz==2021.1
 sqlparse==0.4.1
-waitress==2.0.0
+waitress==2.1.1
